@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> loginScreen
 <!DOCTYPE html>
 <html>
 	<head>
@@ -20,8 +16,7 @@
 				<p>This app will allow you to advertise rides to events and locations along with finding out if people are going where you are.
 				With this rideshare app you can feel better about what kind of carbon footprint you leave.</p>
 			</div>
-<<<<<<< HEAD
-=======
+
 			<div class="login">
 				<form method="post" action="login.jsp">
 		            <table>
@@ -51,7 +46,7 @@
 		            </table>
         		</form>
 			</div>
->>>>>>> loginScreen
+
 			<hr>
 			<%@ include file="includes/footer.jsp" %>
 		</div>
