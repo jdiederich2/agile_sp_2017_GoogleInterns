@@ -21,7 +21,7 @@ public class NewUser implements Serializable {
 	private String password;
 	
 	public NewUser() {
-		// No args constructor 
+		/* no-arg for JavaBean implementation */
 	}
 
 	public NewUser(String firstName, String lastName, int age, String email, String userName, String password) {
@@ -33,6 +33,7 @@ public class NewUser implements Serializable {
 		this.userName = userName;
 		this.password = password;
 	}
+	
 
 	public String getFirstName() {
 		return firstName;
@@ -55,6 +56,9 @@ public class NewUser implements Serializable {
 		return age;
 	}
 
+	public void setAge(int age) {
+		this.age = age;
+	}
 
 	public String getEmail() {
 		return email;
@@ -79,11 +83,15 @@ public class NewUser implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
 
 	@Override
 	public String toString() {
-		return "NewUser [firstName + lastName + " is " + age + ". Email is " + email
-				+ ", userName=" + userName + ", password=" + password + "]";
+		return firstName + " " + lastName + " is " + age + ". Email is " + email + ". User name is " + userName + ". Password is " + password;
 	}
 
 }

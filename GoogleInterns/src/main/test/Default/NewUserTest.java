@@ -19,9 +19,9 @@ public class NewUserTest {
 
 	@Test
 	public void createNewUser() {
-		NewUser newUser = new NewUser("Jen", "Diederich", 41, "jdiederich2@student.cvtc.edu", "JDiederich2", "Password");
+		NewUser newUser = new NewUser("Jen", "Diederich", 41, "jdiederich2@student.cvtc.edu", "JDiederich2", "Apples");
 		assertThat(newUser.toString(), is("Jen Diederich is 41. Email is jdiederich2@student.cvtc.edu. User name is JDiederich2. "
-				+ "Password is password"));
+				+ "Password is Apples"));
 	}
 
 }

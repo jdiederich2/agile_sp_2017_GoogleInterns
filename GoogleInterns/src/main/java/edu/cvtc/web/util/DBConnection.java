@@ -19,7 +19,7 @@ public class DBConnection {
 	// JDBC driver name and database URL
 	static final String DRIVER_NAME = "com.mysql.jdbc.Driver";
 	
-	static final String CONNECTION = "jdbc:mysql://localhost/RideShare";
+	static final String CONNECTION = "jdbc:mysql://localhost:3306/RideShare"; 
 	
 	// Database credentials
 	static final String USER = "agileAdmin";
@@ -31,8 +31,10 @@ public class DBConnection {
 		Class.forName(DRIVER_NAME);
 		
 		// Create DB Connection
-		return DriverManager.getConnection(CONNECTION);
+		return DriverManager.getConnection(CONNECTION, USER, PASS);
+
 	}
+	
 	
 	public static void closeConnections(final Connection connection, final Statement statement) {
 		

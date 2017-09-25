@@ -17,22 +17,20 @@ import edu.cvtc.web.util.DBConnection;
  */
 public class NewUserDaoImpl implements NewUserDao {
 
-	/* (non-Javadoc)
-	 * @see edu.cvtc.web.dao.NewUserDao#populate(java.lang.String)
-	 */
-	public void insertNewUser(final NewUser newUser) throws NewUserException {
+	public void insertNewUser(final NewUser newUser) throws NewUserDaoException {
 		
 		Connection connection = null;
-		
-		// Will skip anything that is java related from import file.. () {} etc
 		PreparedStatement insertStatement = null;
+	
 		
 		try {
 			
 			connection = DBConnection.createConnection();
 			
-			final String sqlStatement = "insert into newUser (firstName, lastName, age, email, userName, password) values (?,?,?,?,?,?);";
 			
+			
+			final String sqlStatement = "insert into newUser (firstName, lastName, age, email, userName, password) values (?,?,?,?,?,?);";
+					
 			insertStatement = connection.prepareStatement(sqlStatement);
 			
 			// replace ??? with values that should be used
@@ -40,8 +38,10 @@ public class NewUserDaoImpl implements NewUserDao {
 			insertStatement.setString(2, newUser.getLastName());
 			insertStatement.setInt(3, newUser.getAge());
 			insertStatement.setString(4, newUser.getEmail());
-			insertStatement.setString(4, newUser.getUserName());
-			insertStatement.setString(4, newUser.getPassword());
+			insertStatement.setString(5, newUser.getUserName());
+			insertStatement.setString(6, newUser.getPassword());
+			
+			System.out.println(newUser);
 			
 			insertStatement.setQueryTimeout(DBConnection.TIMEOUT);
 			
@@ -49,7 +49,7 @@ public class NewUserDaoImpl implements NewUserDao {
 			
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
-			throw new NewUserException("Error: Unable to add this person to the database.");  // Could add Person: + person to show person 
+			throw new NewUserDaoException("Error: Unable to add this person to the database.");  // Could add Person: + person to show person 
 		} finally {
 			DBConnection.closeConnections(connection, insertStatement);
 		}

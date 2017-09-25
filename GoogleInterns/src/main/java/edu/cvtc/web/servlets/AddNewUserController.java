@@ -11,7 +11,7 @@ import com.google.common.base.Strings;
 
 import edu.cvtc.web.dao.NewUserDao;
 import edu.cvtc.web.dao.impl.NewUserDaoImpl;
-import edu.cvtc.web.dao.impl.NewUserException;
+import edu.cvtc.web.dao.impl.NewUserDaoException;
 import edu.cvtc.web.model.NewUser;
 
 /**
@@ -27,20 +27,15 @@ public class AddNewUserController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String target = null;
+		
 		final String firstName = request.getParameter("firstName");
 		final String lastName = request.getParameter("lastName");
 		final String ageString = request.getParameter("age");
 		final String email = request.getParameter("email");
 		final String userName = request.getParameter("userName");
 		final String password = request.getParameter("password");
-		
-		// Set response content type
-	    response.setContentType("text/html");
-	    
-		request.getParameter("smoker");
-
-		String target = null;
-		
+			
 		if (Strings.isNullOrEmpty(firstName) 
 				|| Strings.isNullOrEmpty(lastName)
 				|| Strings.isNullOrEmpty(ageString)
@@ -59,22 +54,19 @@ public class AddNewUserController extends HttpServlet {
 				newUserDao.insertNewUser(new NewUser(firstName, lastName, age, email, userName, password));
 				
 				request.setAttribute("message", "New user added successfully.");
-				target = "success.jsp";
-			} catch (NewUserException e) {
+				target = "home.jsp";
+				
+			} catch (NewUserDaoException e) {
 				e.printStackTrace();
 				request.setAttribute("message", e.getMessage());;
 				target = "error.jsp";
 			}
+			
+			request.getRequestDispatcher(target).forward(request, response);
 		}
 	}
 	
-	
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 	
