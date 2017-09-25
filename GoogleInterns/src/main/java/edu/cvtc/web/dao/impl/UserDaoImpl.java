@@ -7,17 +7,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import edu.cvtc.web.dao.NewUserDao;
-import edu.cvtc.web.model.NewUser;
+import edu.cvtc.web.dao.UserDao;
+import edu.cvtc.web.model.User;
 import edu.cvtc.web.util.DBConnection;
 
 /**
  * @author Jennifer Diederich
  *
  */
-public class NewUserDaoImpl implements NewUserDao {
+public class UserDaoImpl implements UserDao {
 
-	public void insertNewUser(final NewUser newUser) throws NewUserDaoException {
+	public void insertNewUser(final User user) throws UserDaoException {
 		
 		Connection connection = null;
 		PreparedStatement insertStatement = null;
@@ -34,14 +34,14 @@ public class NewUserDaoImpl implements NewUserDao {
 			insertStatement = connection.prepareStatement(sqlStatement);
 			
 			// replace ??? with values that should be used
-			insertStatement.setString(1, newUser.getFirstName());
-			insertStatement.setString(2, newUser.getLastName());
-			insertStatement.setInt(3, newUser.getAge());
-			insertStatement.setString(4, newUser.getEmail());
-			insertStatement.setString(5, newUser.getUserName());
-			insertStatement.setString(6, newUser.getPassword());
+			insertStatement.setString(1, user.getFirstName());
+			insertStatement.setString(2, user.getLastName());
+			insertStatement.setInt(3, user.getAge());
+			insertStatement.setString(4, user.getEmail());
+			insertStatement.setString(5, user.getUserName());
+			insertStatement.setString(6, user.getPassword());
 			
-			System.out.println(newUser);
+			System.out.println(user);
 			
 			insertStatement.setQueryTimeout(DBConnection.TIMEOUT);
 			
@@ -49,7 +49,7 @@ public class NewUserDaoImpl implements NewUserDao {
 			
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
-			throw new NewUserDaoException("Error: Unable to add this person to the database.");  // Could add Person: + person to show person 
+			throw new UserDaoException("Error: Unable to add this person to the database.");  // Could add Person: + person to show person 
 		} finally {
 			DBConnection.closeConnections(connection, insertStatement);
 		}

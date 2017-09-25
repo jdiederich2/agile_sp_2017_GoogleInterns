@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div>
-		<form method="post" action="AddNewUser">
+		<form method="post" action="AddUser">
             <table>
                 <thead>
                     <tr>

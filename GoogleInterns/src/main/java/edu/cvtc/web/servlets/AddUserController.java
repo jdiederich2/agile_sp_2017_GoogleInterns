@@ -9,16 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.common.base.Strings;
 
-import edu.cvtc.web.dao.NewUserDao;
-import edu.cvtc.web.dao.impl.NewUserDaoImpl;
-import edu.cvtc.web.dao.impl.NewUserDaoException;
-import edu.cvtc.web.model.NewUser;
+import edu.cvtc.web.dao.UserDao;
+import edu.cvtc.web.dao.impl.UserDaoImpl;
+import edu.cvtc.web.dao.impl.UserDaoException;
+import edu.cvtc.web.model.User;
 
 /**
  * Servlet implementation class AddNewUserController
  */
-@WebServlet("/AddNewUser")
-public class AddNewUserController extends HttpServlet {
+@WebServlet("/AddUser")
+public class AddUserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -50,13 +50,13 @@ public class AddNewUserController extends HttpServlet {
 			try {
 				final int age = Integer.parseInt(ageString);
 				
-				final NewUserDao newUserDao = new NewUserDaoImpl();
-				newUserDao.insertNewUser(new NewUser(firstName, lastName, age, email, userName, password));
+				final UserDao userDao = new UserDaoImpl();
+				userDao.insertNewUser(new User(firstName, lastName, age, email, userName, password));
 				
 				request.setAttribute("message", "New user added successfully.");
 				target = "home.jsp";
 				
-			} catch (NewUserDaoException e) {
+			} catch (UserDaoException e) {
 				e.printStackTrace();
 				request.setAttribute("message", e.getMessage());;
 				target = "error.jsp";

@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @author Jennifer Diederich
  *
  */
-public class NewUser implements Serializable {
+public class User implements Serializable {
 
 	private static final long serialVersionUID = -2220777883091033066L;
 	
@@ -20,11 +20,11 @@ public class NewUser implements Serializable {
 	private String userName;
 	private String password;
 	
-	public NewUser() {
+	public User() {
 		/* no-arg for JavaBean implementation */
 	}
 
-	public NewUser(String firstName, String lastName, int age, String email, String userName, String password) {
+	public User(String firstName, String lastName, int age, String email, String userName, String password) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
