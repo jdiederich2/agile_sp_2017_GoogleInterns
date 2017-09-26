@@ -13,4 +13,7 @@ import edu.cvtc.web.model.User;
 public interface UserDao {
 
 	void insertNewUser(User user) throws UserDaoException;
+	
+	void findUser(User user) throws UserDaoException;
+	
 }

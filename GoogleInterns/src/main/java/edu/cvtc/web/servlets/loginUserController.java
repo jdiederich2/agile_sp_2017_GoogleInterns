@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.common.base.Strings;
 
+import edu.cvtc.web.dao.UserDao;
+import edu.cvtc.web.dao.impl.UserDaoImpl;
+
 /**
  * Servlet implementation class login
  */
@@ -35,6 +38,7 @@ public class loginUserController extends HttpServlet {
 			
 		} else {
 			
+			final UserDao userDao = new UserDaoImpl();
 		}
 		
 	}

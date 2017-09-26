@@ -5,7 +5,9 @@ package edu.cvtc.web.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import edu.cvtc.web.dao.UserDao;
 import edu.cvtc.web.model.User;
@@ -21,13 +23,10 @@ public class UserDaoImpl implements UserDao {
 		
 		Connection connection = null;
 		PreparedStatement insertStatement = null;
-	
 		
 		try {
 			
 			connection = DBConnection.createConnection();
-			
-			
 			
 			final String sqlStatement = "insert into newUser (firstName, lastName, age, email, userName, password) values (?,?,?,?,?,?);";
 					
@@ -54,6 +53,38 @@ public class UserDaoImpl implements UserDao {
 			DBConnection.closeConnections(connection, insertStatement);
 		}
 	}
-}
+	
+	@Override
+	public void findUser(User user) throws UserDaoException {
+		
+		Connection connection = null;
+		Statement statement = null;
+		
 
+				try {
+					connection = DBConnection.createConnection();
+					
+					statement = connection.createStatement();
+					
+					statement.setQueryTimeout(DBConnection.TIMEOUT);
+					
+					final ResultSet resultSet = statement.executeQuery("select (userName, password) from newUser values (?,?);");
+					
+					statement.executeQuery(user.getUserName());
+					statement.executeQuery(user.getPassword());
+					
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
+
+
+	}
+
+}
 
