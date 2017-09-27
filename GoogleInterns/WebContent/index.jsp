@@ -18,7 +18,7 @@
 			</div>
 
 			<div class="login">
-				<form method="post" action="login.jsp">
+				<form method="post" action="login">
 		            <table>
 		                <thead>
 		                    <tr>
@@ -32,7 +32,7 @@
 		                    </tr>
 		                    <tr>
 		                        <td>Password</td>
-		                        <td><input type="password" name="password" value="" placeholder="Password" required /></td>
+		                        <td><input type="text" name="password" value="" placeholder="Password" required /></td>
 		                    </tr>
 		                    <tr>
 		                        <td><input type="submit" value="Login" /></td>

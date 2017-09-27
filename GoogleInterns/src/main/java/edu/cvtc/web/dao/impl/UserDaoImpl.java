@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import edu.cvtc.web.dao.UserDao;
 import edu.cvtc.web.model.User;
@@ -54,36 +56,40 @@ public class UserDaoImpl implements UserDao {
 		}
 	}
 	
+	
+
 	@Override
 	public void findUser(User user) throws UserDaoException {
 		
+		String myUserName = user.getUserName();
+		String myPassword = user.getPassword();
+		
 		Connection connection = null;
-		Statement statement = null;
+		PreparedStatement statement = null;
 		
 
+
+				String sql = "SELECT * FROM newUser WHERE userName = ? AND password = ?";
+				
 				try {
 					connection = DBConnection.createConnection();
 					
-					statement = connection.createStatement();
+					statement = connection.prepareStatement(sql);
 					
+					statement.setString(1, myUserName);
+					statement.setString(2, myPassword);
+
 					statement.setQueryTimeout(DBConnection.TIMEOUT);
 					
-					final ResultSet resultSet = statement.executeQuery("select (userName, password) from newUser values (?,?);");
-					
-					statement.executeQuery(user.getUserName());
-					statement.executeQuery(user.getPassword());
-					
-				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
+				} catch (ClassNotFoundException | SQLException e) {
 					e.printStackTrace();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					throw new UserDaoException("Error");
+					
+				} finally {
+					DBConnection.closeConnections(connection, statement);
 				}
 				
-				
-
-
+		
 	}
 
 }

@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 import com.google.common.base.Strings;
 
@@ -36,7 +37,7 @@ public class AddUserController extends HttpServlet {
 		final String userName = request.getParameter("userName");
 		final String password = request.getParameter("password");
 			
-		if (Strings.isNullOrEmpty(firstName) 
+		if (Strings.isNullOrEmpty(firstName)
 				|| Strings.isNullOrEmpty(lastName)
 				|| Strings.isNullOrEmpty(ageString)
 				|| Strings.isNullOrEmpty(email)
@@ -45,6 +46,7 @@ public class AddUserController extends HttpServlet {
 			
 			request.setAttribute("message", "You must complete all fields to submit the form.");
 			target = "error.jsp";
+			
 			
 		} else {
 			try {
