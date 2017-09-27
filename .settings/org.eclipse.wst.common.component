@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="agile_sp_2017_GoogleInterns">
-        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/GoogleInterns/src/main/java"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/GoogleInterns/src/main/test"/>
-        <property name="context-root" value="agile_sp_2017_GoogleInterns"/>
-        <property name="java-output-path" value="/agile_sp_2017_GoogleInterns/GoogleInterns/bin"/>
-    </wb-module>
-</project-modules>
