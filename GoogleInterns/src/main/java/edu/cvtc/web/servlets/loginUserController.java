@@ -49,7 +49,7 @@ public class loginUserController extends HttpServlet {
 		} else {
 			try{
 				final UserDao userDao = new UserDaoImpl();
-				userDao.findUser(new User(myUserName, myPassword));
+				userDao.findUser(new User(myPassword));
 					
 					System.out.println("complete");
 					

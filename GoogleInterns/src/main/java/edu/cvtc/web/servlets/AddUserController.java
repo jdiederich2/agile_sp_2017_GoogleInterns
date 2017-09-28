@@ -6,7 +6,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.JOptionPane;
 
 import com.google.common.base.Strings;
 
@@ -34,14 +33,12 @@ public class AddUserController extends HttpServlet {
 		final String lastName = request.getParameter("lastName");
 		final String ageString = request.getParameter("age");
 		final String email = request.getParameter("email");
-		final String userName = request.getParameter("userName");
 		final String password = request.getParameter("password");
 			
 		if (Strings.isNullOrEmpty(firstName)
 				|| Strings.isNullOrEmpty(lastName)
 				|| Strings.isNullOrEmpty(ageString)
 				|| Strings.isNullOrEmpty(email)
-				|| Strings.isNullOrEmpty(userName)
 				|| Strings.isNullOrEmpty(password)) {
 			
 			request.setAttribute("message", "You must complete all fields to submit the form.");
@@ -53,7 +50,7 @@ public class AddUserController extends HttpServlet {
 				final int age = Integer.parseInt(ageString);
 				
 				final UserDao userDao = new UserDaoImpl();
-				userDao.insertNewUser(new User(firstName, lastName, age, email, userName, password));
+				userDao.insertNewUser(new User(firstName, lastName, age, email, password));
 				
 				request.setAttribute("message", "New user added successfully.");
 				target = "home.jsp";
