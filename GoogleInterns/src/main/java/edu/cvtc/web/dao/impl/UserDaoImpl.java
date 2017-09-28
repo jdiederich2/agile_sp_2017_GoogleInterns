@@ -30,7 +30,7 @@ public class UserDaoImpl implements UserDao {
 			
 			connection = DBConnection.createConnection();
 			
-			final String sqlStatement = "insert into newUser (firstName, lastName, age, email, userName, password) values (?,?,?,?,?,?);";
+			final String sqlStatement = "insert into newUser (firstName, lastName, age, email, password) values (?,?,?,?,?);";
 					
 			insertStatement = connection.prepareStatement(sqlStatement);
 			
@@ -39,8 +39,7 @@ public class UserDaoImpl implements UserDao {
 			insertStatement.setString(2, user.getLastName());
 			insertStatement.setInt(3, user.getAge());
 			insertStatement.setString(4, user.getEmail());
-			insertStatement.setString(5, user.getUserName());
-			insertStatement.setString(6, user.getPassword());
+			insertStatement.setString(5, user.getPassword());
 			
 			System.out.println(user);
 			
@@ -60,8 +59,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void findUser(User user) throws UserDaoException {
-		
-		String myUserName = user.getUserName();
+
 		String myPassword = user.getPassword();
 		
 		Connection connection = null;
@@ -76,7 +74,6 @@ public class UserDaoImpl implements UserDao {
 					
 					statement = connection.prepareStatement(sql);
 					
-					statement.setString(1, myUserName);
 					statement.setString(2, myPassword);
 
 					statement.setQueryTimeout(DBConnection.TIMEOUT);

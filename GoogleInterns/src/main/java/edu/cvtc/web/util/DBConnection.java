@@ -16,14 +16,10 @@ public class DBConnection {
 	
 	public static final int TIMEOUT = 30;
 
-	// JDBC driver name and database URL
-	static final String DRIVER_NAME = "com.mysql.jdbc.Driver";
-	
-	static final String CONNECTION = "jdbc:mysql://localhost:3306/RideShare"; 
-	
-	// Database credentials
-	static final String USER = "agileAdmin";
-	static final String PASS = "admin";
+	// Create driver - Like updating a driver on your computer
+	private static final String DRIVER_NAME = "org.sqlite.JDBC";
+	// Map to DB we want to use
+	private static final String CONNECTION = "jdbc:sqlite:/Users/jenniferdiederich/agile_sp_2017_GoogleInterns/GoogleInterns/WebContent/Database/database_RideShare.db";
 	
 	public static Connection createConnection() throws ClassNotFoundException, SQLException {
 		
@@ -31,7 +27,7 @@ public class DBConnection {
 		Class.forName(DRIVER_NAME);
 		
 		// Create DB Connection
-		return DriverManager.getConnection(CONNECTION, USER, PASS);
+		return DriverManager.getConnection(CONNECTION);
 
 	}
 	
