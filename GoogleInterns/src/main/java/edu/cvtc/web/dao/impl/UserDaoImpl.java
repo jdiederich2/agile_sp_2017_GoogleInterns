@@ -7,9 +7,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 import edu.cvtc.web.dao.UserDao;
 import edu.cvtc.web.model.User;
@@ -24,70 +21,116 @@ public class UserDaoImpl implements UserDao {
 	public void insertNewUser(final User user) throws UserDaoException {
 		
 		Connection connection = null;
-		PreparedStatement insertStatement = null;
+		PreparedStatement ps = null;
+		
+		final String sqlStatement = "insert into newUser (firstName, lastName, age, email, password) values (?,?,?,?,?);";
+		
+		try {
+			
+			connection = DBConnection.createConnection();
+	
+			ps = connection.prepareStatement(sqlStatement);
+			
+			// replace ??? with values that should be used
+			ps.setString(1, user.getFirstName());
+			ps.setString(2, user.getLastName());
+			ps.setInt(3, user.getAge());
+			ps.setString(4, user.getEmail());
+			ps.setString(5, user.getPassword());
+			
+			System.out.println(user);
+			
+			ps.setQueryTimeout(DBConnection.TIMEOUT);
+			
+			ps.executeUpdate();
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			throw new UserDaoException("Error: Unable to add this person to the database.");  // Could add Person: + person to show person 
+		
+		} finally {
+			DBConnection.closeConnections(connection, ps);
+		}
+	}
+	
+
+	@SuppressWarnings("finally")
+	public int update(User user) throws UserDaoException {
+		
+		Connection connection = null;
+		PreparedStatement ps = null;
+
+		String query = "UPDATE User SET " 
+				+ "firstName = ?, "
+				+ "lastName = ?, "
+				+ "age = ?, "
+				+ "email = ?, "
+				+ "password = ?"
+				+ "WHERE email = ?";
 		
 		try {
 			
 			connection = DBConnection.createConnection();
 			
-			final String sqlStatement = "insert into newUser (firstName, lastName, age, email, password) values (?,?,?,?,?);";
-					
-			insertStatement = connection.prepareStatement(sqlStatement);
+			ps = connection.prepareStatement(query);
+			ps.setString(1, user.getFirstName());
+			ps.setString(2, user.getLastName());
+			ps.setInt(3, user.getAge());
+			ps.setString(4, user.getEmail());
+			ps.setString(5, user.getPassword());
 			
-			// replace ??? with values that should be used
-			insertStatement.setString(1, user.getFirstName());
-			insertStatement.setString(2, user.getLastName());
-			insertStatement.setInt(3, user.getAge());
-			insertStatement.setString(4, user.getEmail());
-			insertStatement.setString(5, user.getPassword());
+			ps.setQueryTimeout(DBConnection.TIMEOUT);
 			
-			System.out.println(user);
-			
-			insertStatement.setQueryTimeout(DBConnection.TIMEOUT);
-			
-			insertStatement.executeUpdate();
+			return ps.executeUpdate();
 			
 		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			throw new UserDaoException("Error: Unable to add this person to the database.");  // Could add Person: + person to show person 
+			System.out.println(e);
+			throw new UserDaoException("Error: Unable to add this person to the database.");
+
 		} finally {
-			DBConnection.closeConnections(connection, insertStatement);
+				
+			DBConnection.closeConnections(connection, ps);
+			return 0;
 		}
 	}
 	
-	
-
-	@Override
-	public void findUser(User user) throws UserDaoException {
-
-		String myPassword = user.getPassword();
+	public static User selectUser(String email) throws UserDaoException {
 		
 		Connection connection = null;
-		PreparedStatement statement = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		String query = "SELECT * FROM User WHERE email = ?";
 		
+		try {
+			
+			connection = DBConnection.createConnection();
+			ps = connection.prepareStatement(query);
+			
+			ps.setString(1, email);
+			rs = ps.executeQuery();
+			User user = null;
+			
+			if (rs.next()) {
+				user = new User();
+				user.setFirstName(rs.getString("firstName"));
+				user.setLastName(rs.getString("lastName"));
+				user.setAge(rs.getInt("age"));
+				user.setEmail(rs.getString("email"));
+				user.setPassword(rs.getString("password"));
+			}
 
+			ps.setQueryTimeout(DBConnection.TIMEOUT);
+			return user;
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			System.out.println(e);
+			return null;
 
-				String sql = "SELECT * FROM newUser WHERE userName = ? AND password = ?";
-				
-				try {
-					connection = DBConnection.createConnection();
-					
-					statement = connection.prepareStatement(sql);
-					
-					statement.setString(2, myPassword);
-
-					statement.setQueryTimeout(DBConnection.TIMEOUT);
-					
-				} catch (ClassNotFoundException | SQLException e) {
-					e.printStackTrace();
-					throw new UserDaoException("Error");
-					
-				} finally {
-					DBConnection.closeConnections(connection, statement);
-				}
-				
-		
-	}
-
+		} finally {
+			DBConnection.closeResultSet(rs);	
+			DBConnection.closeConnections(connection, ps);
+		}
+	} 
+	
 }
-

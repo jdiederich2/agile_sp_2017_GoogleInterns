@@ -14,6 +14,6 @@ public interface UserDao {
 
 	void insertNewUser(User user) throws UserDaoException;
 	
-	void findUser(User user) throws UserDaoException;
+	int update(User user) throws UserDaoException;
 	
 }
