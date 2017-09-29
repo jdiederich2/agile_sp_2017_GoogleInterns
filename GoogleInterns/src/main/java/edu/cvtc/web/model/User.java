@@ -31,10 +31,7 @@ public class User implements Serializable {
 		this.email = email;
 		this.password = password;
 	}
-	
-	public User(String password) {
-		this.password = password;
-	}
+
 
 	public String getFirstName() {
 		return firstName;
@@ -51,7 +48,6 @@ public class User implements Serializable {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
 	
 	public int getAge() {
 		return age;

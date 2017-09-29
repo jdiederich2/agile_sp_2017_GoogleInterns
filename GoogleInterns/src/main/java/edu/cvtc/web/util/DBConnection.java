@@ -5,6 +5,7 @@ package edu.cvtc.web.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -44,6 +45,18 @@ public class DBConnection {
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+
+	public static void closeResultSet(ResultSet rs) {
+		try {
+			if(rs != null) {
+				rs.close();
+			}
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+		
 	}
 
 }

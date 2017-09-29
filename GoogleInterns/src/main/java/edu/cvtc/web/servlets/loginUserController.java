@@ -1,68 +1,65 @@
 package edu.cvtc.web.servlets;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.common.base.Strings;
+import bean.LoginBean;
+import edu.cvtc.web.dao.impl.LoginDaoImpl;
 
-import edu.cvtc.web.dao.UserDao;
-import edu.cvtc.web.dao.impl.UserDaoException;
-import edu.cvtc.web.dao.impl.UserDaoImpl;
-import edu.cvtc.web.model.User;
-import edu.cvtc.web.util.DBConnection;
 
 /**
- * Servlet implementation class login
+ * Servlet implementation class LoginUserController
  */
-@WebServlet("/login")
-public class loginUserController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+@WebServlet("/LoginUser")
 
+public class LoginUserController extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1556099030036290488L;
+
+	public LoginUserController() {
+	}
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-				
 		
-		final String myUserName = request.getParameter("userName");
-		final String myPassword = request.getParameter("password");
+		final String userName = request.getParameter("userName");
+		final String password = request.getParameter("password");
 		
-		String target = null; 
+		LoginBean loginBean = new LoginBean();
+		loginBean.setUserName(userName);
+		loginBean.setPassword(password);
 		
-		if (Strings.isNullOrEmpty(myUserName)
-				|| Strings.isNullOrEmpty(myPassword)) {
+		LoginDaoImpl loginDaoImpl = new LoginDaoImpl();
+		System.out.println("LUC LoginBean");
+		
+		try {
+			String userValidate = loginDaoImpl.authenticateUser(loginBean);
+			System.out.println("LUC userValidate");
+		
+		if (userValidate.equals("SUCCESS")) {
 			
-			request.setAttribute("message", "You must complete all fields to submit the form.");
-			target = "error.jsp";
+			request.setAttribute("userName", userName);
+			request.getRequestDispatcher("/home.jsp").forward(request, response);;
+			System.out.println("LUC setAttribute");
+		
+		}  else  {  
 			
-		} else {
-			try{
-				final UserDao userDao = new UserDaoImpl();
-				userDao.findUser(new User(myPassword));
-					
-					System.out.println("complete");
-					
-					request.setAttribute("message", "Login Successful.");
-					target = "home.jsp";
-				
-			} catch (UserDaoException e) {
-					e.printStackTrace();
-				}
-			
-			
+			request.setAttribute("errMessage", userValidate); //If authenticateUser() function returnsother than SUCCESS string it will be sent to Login page again. Here the error message returned from function has been stored in a errMessage key.
+			request.getRequestDispatcher("/login.jsp").forward(request, response);//forwarding the request
+			System.out.println("Did not work");
 		}
 		
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}		
 	}
 
 	/**
