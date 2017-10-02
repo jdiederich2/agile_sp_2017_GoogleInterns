@@ -9,11 +9,7 @@
 	<body>
 		<div class="container">
 			<div class ="hero-unit"> 
-<<<<<<< HEAD
-				<h1>Find a Ride</h1>	
-=======
 				<h1>Find a Passenger</h1>	
->>>>>>> loginScreen
 			</div>
 <%@ include file="includes/navigation.jsp" %>
 			<div class="container">
