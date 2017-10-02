@@ -44,11 +44,23 @@
 	                    </tr>
 	                    <tr>
 	                        <td>Travel Date</td>
-	                        <td><input type="date" name="travelDate" value="" placeholder="Travel Date" required /></td>
+	                        <td><input type="date" name="travelDate" value="" required /></td>
 	                    </tr>
 	                    <tr>
 	                        <td>Travel Time</td>
-	                        <td><input type="time" name="travelTime" value="" required /></td>
+	                        <td><input type="time" name="travelTime" value="12:00" required /></td>
+	                    </tr>
+	                    <tr>
+	                        <td>Return Date</td>
+	                        <td><input type="date" name="returnDate" value="" required /></td>
+	                    </tr>
+	                    <tr>
+	                        <td>Return Time</td>
+	                        <td><input type="time" name="returnTime" value="12:00" required /></td>
+	                    </tr>
+	                    <tr>
+	                        <td>Number Of Passengers</td>
+	                        <td><input type="number" name="numPassengers" min="1" step="1" max="20" value="1" required/></td>	                        
 	                    </tr>
 	                    <tr>
 	                        <td>Smoking or Non-smoking</td>
