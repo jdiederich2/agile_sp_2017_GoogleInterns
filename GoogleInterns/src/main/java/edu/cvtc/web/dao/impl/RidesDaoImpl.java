@@ -10,14 +10,15 @@ import edu.cvtc.web.util.DBConnection;
 
 public class RidesDaoImpl implements RidesDao{
 
-	public void insertNewRide(final Rides rides) throws UserDaoException {
+	public void insertNewRide(final Rides rides) throws RidesDaoException {
 		
 		Connection connection = null;
 		PreparedStatement ps = null;
 		
-		final String sqlStatement = "insert into rides (userName, driverOrPassanger, startingAddressLn1, startingAddressLn2, startingCity, startingState,"
-				+ "startingDate, startingTime, endingAddressLn1, endingAddressLn2, endingCity, endingState, returnDate, returnTime, numberOfPassangers, allowSmoking, gas) "
-				+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		final String sqlStatement = "insert into rides (userName, driverOrPassanger, startingAddressLn1, startingAddressLn2, startingCity, startingState, "
+				+ "startingDate, startingTime, endingAddressLn1, endingAddressLn2, endingCity, endingState, returnDate, returnTime, numberOfPassangers, "
+				+ "allowSmoking, gas)"
+				+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 		
 		try {
 			
@@ -52,7 +53,7 @@ public class RidesDaoImpl implements RidesDao{
 			
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
-			throw new UserDaoException("Error: Unable to add ride to the database.");  
+			throw new RidesDaoException("Error: Unable to add ride to the database.");  
 		
 		} finally {
 			DBConnection.closeConnections(connection, ps);
@@ -110,13 +111,6 @@ public class RidesDaoImpl implements RidesDao{
 			DBConnection.closeConnections(connection, ps);
 			return 0;
 		}
-	}
-
-
-	@Override
-	public void insertNewRides(Rides rides) throws RidesDaoException {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

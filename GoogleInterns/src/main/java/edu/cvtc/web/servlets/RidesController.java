@@ -72,10 +72,11 @@ public class RidesController  extends HttpServlet {
 				final int gas = Integer.parseInt(gasString);
 				
 				final RidesDao ridesDao = new RidesDaoImpl();
-				ridesDao.insertNewRides(new Rides(userName, driverOrPassanger, startingAddressLn1, startingAddressLn2, startingCity, startingState, 
+				ridesDao.insertNewRide(new Rides(userName, driverOrPassanger, startingAddressLn1, startingAddressLn2, startingCity, startingState, 
 						startingDate, startingTime, endingAddressLn1, endingAddressLn2, endingCity, endingState, returnDate, returnTime, numberOfPassangers, allowSmoking, gas));
 				
 				request.setAttribute("message", "New ride added successfully.");
+				target = "home.jsp";
 				
 			} catch (RidesDaoException e) {
 				e.printStackTrace();
