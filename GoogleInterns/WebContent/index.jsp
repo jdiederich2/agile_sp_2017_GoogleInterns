@@ -16,7 +16,6 @@
 			<div> 
 				<h1>The Hitchhicker's Guide to Chippewa Valley</h1>	
 			</div>
-<%@ include file="includes/navigation.jsp" %>
 
 			<div class="container">
 				<h2>Need a ride? Need money for gas? Try Chippewa Valley rideshare, it's easier then sticking out your thumb!!</h2>
