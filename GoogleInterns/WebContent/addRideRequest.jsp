@@ -84,7 +84,7 @@
 	                    </tr>
 	                    <tr>
 	                        <td>Number Of Passengers</td>
-	                        <td><input type="number" name="numberOfPassengers" min="1" step="1" max="20" value="1" required/></td>	                        
+	                        <td><input type="text" name="numberOfPassangers" value="" placeholder = "# of Passangers" required/></td>	                        
 	                    </tr>
 	                    <tr>
 	                        <td>Smoking or Non-smoking</td>
@@ -95,7 +95,7 @@
 	                    </tr>
 	                    <tr>
 	                        <td>Gas Cost</td>
-	                        <td>$<input type="number" name="gas" min="0.01" step="0.01" max="2500" value="25.67" required/></td>	                        
+	                        <td>$<input type="text" name="gas" value="" placeholder= "Passanger Cost" required/></td>	                        
 	                    </tr>
 	                    <tr>
 	                    	<td><input type="submit" value="Add New Ride" /></td>

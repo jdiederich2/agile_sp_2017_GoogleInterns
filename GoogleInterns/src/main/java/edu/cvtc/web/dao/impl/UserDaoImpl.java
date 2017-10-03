@@ -31,7 +31,7 @@ public class UserDaoImpl implements UserDao {
 	
 			ps = connection.prepareStatement(sqlStatement);
 			
-			// replace ??? with values that should be used
+		
 			ps.setString(1, user.getFirstName());
 			ps.setString(2, user.getLastName());
 			ps.setInt(3, user.getAge());
