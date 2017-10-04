@@ -10,7 +10,7 @@ pageEncoding="ISO-8859-1"%>
 	</head>
 	<body>
 		<div>
-			<a href="LogoutUserController">Logout</a>|  
+			<a href="Logout.jsp">Logout</a>|  
 			<a href="profile.jsp">Profile</a>  
 		</div>
 		<div>

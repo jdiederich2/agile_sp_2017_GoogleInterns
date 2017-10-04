@@ -23,6 +23,9 @@
 				<p>This application will allow you to advertise rides to events and locations along with finding out if people are going where you are.
 				With this rideshare application you can feel better about what kind of carbon footprint you leave.</p>
 			</div>
+			<div>
+				<h1>You have been logged out successfully!</h1>
+			</div>
 
 			<hr>
 <%@ include file="includes/footer.jsp" %>

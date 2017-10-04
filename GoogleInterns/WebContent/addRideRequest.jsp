@@ -44,11 +44,11 @@
 	                    </tr>
 	                    <tr>
 	                        <td>Start City</td>
-	                        <td><input type="text" name="startingCity" value="" placeholder="Start City"/></td>
+	                        <td><input type="text" name="startingCity" value="" placeholder="Start City" required /></td>
 	                    </tr>
 	                    <tr>
 	                        <td>Start State</td>
-	                        <td><input type="text" name="startingState" value="" placeholder="Starting State"/></td>
+	                        <td><input type="text" name="startingState" value="" placeholder="Starting State" required /></td>
 	                    </tr>
 	                    <tr>
 	                    	<td>Starting Travel Date</td>
@@ -76,11 +76,11 @@
 	                    </tr>
 	                    <tr>
 	                        <td>Return Travel Date</td>
-	                        <td><input type="date" name="returnDate" value="" required /></td>
+	                        <td><input type="date" name="returnDate" value="" /></td>
 	                    </tr>
 	                    <tr>
 	                        <td>Return Travel Time</td>
-	                        <td><input type="time" name="returnTime" value="12:00" required /></td>
+	                        <td><input type="time" name="returnTime" value="12:00" /></td>
 	                    </tr>
 	                    <tr>
 	                        <td>Number Of Passengers</td>
@@ -95,7 +95,7 @@
 	                    </tr>
 	                    <tr>
 	                        <td>Gas Cost</td>
-	                        <td>$<input type="text" name="gas" value="" placeholder= "Passanger Cost" required/></td>	                        
+	                        <td>$<input type="text" name="gas" value="" min="1" placeholder= "Passanger Cost" required/></td>	                        
 	                    </tr>
 	                    <tr>
 	                    	<td><input type="submit" value="Add New Ride" /></td>

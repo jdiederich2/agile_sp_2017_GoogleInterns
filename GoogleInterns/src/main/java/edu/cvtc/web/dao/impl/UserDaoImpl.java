@@ -23,7 +23,7 @@ public class UserDaoImpl implements UserDao {
 		Connection connection = null;
 		PreparedStatement ps = null;
 		
-		final String sqlStatement = "insert into newUser (firstName, lastName, age, email, password) values (?,?,?,?,?);";
+		final String sqlStatement = "insert into newUser (firstName, lastName, age, userEmail, password) values (?,?,?,?,?);";
 		
 		try {
 			
@@ -31,11 +31,10 @@ public class UserDaoImpl implements UserDao {
 	
 			ps = connection.prepareStatement(sqlStatement);
 			
-		
 			ps.setString(1, user.getFirstName());
 			ps.setString(2, user.getLastName());
 			ps.setInt(3, user.getAge());
-			ps.setString(4, user.getEmail());
+			ps.setString(4, user.getUserEmail());
 			ps.setString(5, user.getPassword());
 			
 			System.out.println(user);
@@ -46,7 +45,7 @@ public class UserDaoImpl implements UserDao {
 			
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
-			throw new UserDaoException("Error: Unable to add this person to the database.");  // Could add Person: + person to show person 
+			throw new UserDaoException("Error: Unable to add this person to the database.");  
 		
 		} finally {
 			DBConnection.closeConnections(connection, ps);
@@ -64,9 +63,9 @@ public class UserDaoImpl implements UserDao {
 				+ "firstName = ?, "
 				+ "lastName = ?, "
 				+ "age = ?, "
-				+ "email = ?, "
+				+ "userEmail = ?, "
 				+ "password = ?"
-				+ "WHERE email = ?";
+				+ "WHERE userEmail = ?";
 		
 		try {
 			
@@ -76,7 +75,7 @@ public class UserDaoImpl implements UserDao {
 			ps.setString(1, user.getFirstName());
 			ps.setString(2, user.getLastName());
 			ps.setInt(3, user.getAge());
-			ps.setString(4, user.getEmail());
+			ps.setString(4, user.getUserEmail());
 			ps.setString(5, user.getPassword());
 			
 			ps.setQueryTimeout(DBConnection.TIMEOUT);
@@ -100,7 +99,7 @@ public class UserDaoImpl implements UserDao {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 
-		String query = "SELECT * FROM User WHERE email = ?";
+		String query = "SELECT * FROM User WHERE userEmail = ?";
 		
 		try {
 			
@@ -116,7 +115,7 @@ public class UserDaoImpl implements UserDao {
 				user.setFirstName(rs.getString("firstName"));
 				user.setLastName(rs.getString("lastName"));
 				user.setAge(rs.getInt("age"));
-				user.setEmail(rs.getString("email"));
+				user.setEmail(rs.getString("userEmail"));
 				user.setPassword(rs.getString("password"));
 			}
 
