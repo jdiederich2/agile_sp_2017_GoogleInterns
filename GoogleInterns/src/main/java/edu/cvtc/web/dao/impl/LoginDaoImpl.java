@@ -45,7 +45,7 @@ public class LoginDaoImpl {
 		
 			DBConnection.closeResultSet(resultSet);	
 			DBConnection.closeConnections(connection, statement);
-			return "Invalid user credentials"; // Just returning appropriate message otherwise
+			return "Invalid user credentials";
 	}
 }
 

@@ -25,7 +25,7 @@
 	                <tbody>
 	                    <tr>
 	                        <td>User Name</td>
-	                        <td><input type="text" name="userName" value="" placeholder="User Name" required /></td>
+	                        <td><input type="email" name="userName" value="" placeholder="User Name" required /></td>
 	                    </tr>
 	                    <tr>
 	                        <td>Looking For</td>
