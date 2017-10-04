@@ -17,16 +17,11 @@ import edu.cvtc.web.dao.impl.LoginDaoImpl;
 @WebServlet("/LoginUser")
 
 public class LoginUserController extends HttpServlet {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -1556099030036290488L;
 
 	public LoginUserController() {
 	}
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -50,10 +45,10 @@ public class LoginUserController extends HttpServlet {
 			request.getRequestDispatcher("/home.jsp").forward(request, response);;
 			System.out.println("LUC setAttribute");
 		
-		}  else  {  
+		}  else {  
 			
-			request.setAttribute("errMessage", userValidate); //If authenticateUser() function returnsother than SUCCESS string it will be sent to Login page again. Here the error message returned from function has been stored in a errMessage key.
-			request.getRequestDispatcher("/login.jsp").forward(request, response);//forwarding the request
+			request.setAttribute("errMessage", userValidate); 
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
 			System.out.println("Did not work");
 		}
 		

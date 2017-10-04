@@ -16,19 +16,19 @@ public class User implements Serializable {
 	private String firstName;
 	private String lastName;
 	private int age;
-	private String email;
+	private String userEmail;
 	private String password;
 	
 	public User() {
 		/* no-arg for JavaBean implementation */
 	}
 
-	public User(String firstName, String lastName, int age, String email, String password) {
+	public User(String firstName, String lastName, int age, String userEmail, String password) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.age = age;
-		this.email = email;
+		this.userEmail = userEmail;
 		this.password = password;
 	}
 
@@ -57,12 +57,12 @@ public class User implements Serializable {
 		this.age = age;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getUserEmail() {
+		return userEmail;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
 
 	public String getPassword() {
@@ -80,7 +80,7 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return firstName + " " + lastName + " is " + age + ". Email is " + email + ". Password is " + password;
+		return firstName + " " + lastName + " is " + age + ". Email is " + userEmail + ". Password is " + password;
 	}
 
 }

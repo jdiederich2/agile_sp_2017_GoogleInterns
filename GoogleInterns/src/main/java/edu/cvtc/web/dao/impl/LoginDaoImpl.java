@@ -25,11 +25,11 @@ public class LoginDaoImpl {
 			
 			statement = connection.createStatement(); 
 			              
-			resultSet = statement.executeQuery("SELECT email, password FROM newUser");  
+			resultSet = statement.executeQuery("SELECT userEmail, password FROM newUser");  
 			
 			while(resultSet.next()) {  
 				
-				userNameDB = resultSet.getString("email"); 
+				userNameDB = resultSet.getString("userEmail"); 
 				passwordDB = resultSet.getString("password");
 				
 				if(userName.equals(userNameDB) && password.equals(passwordDB)) {

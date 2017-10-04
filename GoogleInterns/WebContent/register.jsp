@@ -37,11 +37,10 @@
                     </tr>
                     <tr>
                         <td>E-mail Address</td>
-                        <td><input type="text" name="email" value="" placeholder="E-mail Address" required /></td>
-                    </tr>
-                    <tr>
-                        <td>User Name</td>
-                        <td><input type="text" name="userName" value="" placeholder="User Name" required /></td>
+                        <td><input type="email" name="userEmail" value="" placeholder="E-mail Address" required /></td>
+                    
+                    	<td colspan="4"><span style="color:orange"><%=(request.getAttribute("errMessage") == null) ? ""
+						: request.getAttribute("errMessage")%></span></td>
                     </tr>
                     <tr>
                         <td>Password</td>

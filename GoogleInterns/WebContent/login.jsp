@@ -29,9 +29,9 @@ pageEncoding="ISO-8859-1"%>
                         <td>Password</td>
                         <td><input type="password" name="password" value="" placeholder="Password" required /></td>
                     </tr>
-                    <tr> <!-- refer to the video to understand request.getAttribute() -->
-								<td colspan="4"><span style="color:orange"><%=(request.getAttribute("errMessage") == null) ? ""
-								: request.getAttribute("errMessage")%></span></td>
+                    <tr> 
+						<td colspan="4"><span style="color:orange"><%=(request.getAttribute("errMessage") == null) ? ""
+						: request.getAttribute("errMessage")%></span></td>
 					</tr>			
                     <tr>
                         <td><input type="submit" value="Login" /></td>

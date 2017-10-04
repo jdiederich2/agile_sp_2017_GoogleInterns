@@ -32,13 +32,13 @@ public class AddUserController extends HttpServlet {
 		final String firstName = request.getParameter("firstName");
 		final String lastName = request.getParameter("lastName");
 		final String ageString = request.getParameter("age");
-		final String email = request.getParameter("email");
+		final String userEmail = request.getParameter("userEmail");
 		final String password = request.getParameter("password");
 			
 		if (Strings.isNullOrEmpty(firstName)
 				|| Strings.isNullOrEmpty(lastName)
 				|| Strings.isNullOrEmpty(ageString)
-				|| Strings.isNullOrEmpty(email)
+				|| Strings.isNullOrEmpty(userEmail)
 				|| Strings.isNullOrEmpty(password)) {
 			
 			request.setAttribute("message", "You must complete all fields to submit the form.");
@@ -50,14 +50,14 @@ public class AddUserController extends HttpServlet {
 				final int age = Integer.parseInt(ageString);
 				
 				final UserDao userDao = new UserDaoImpl();
-				userDao.insertNewUser(new User(firstName, lastName, age, email, password));
+				userDao.insertNewUser(new User(firstName, lastName, age, userEmail, password));
 				
 				request.setAttribute("message", "New user added successfully.");
 				target = "home.jsp";
 				
 			} catch (UserDaoException e) {
 				e.printStackTrace();
-				request.setAttribute("message", e.getMessage());;
+				request.setAttribute("errMessage", "Email already in system");;
 				target = "error.jsp";
 			}
 			
