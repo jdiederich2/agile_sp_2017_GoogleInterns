@@ -23,5 +23,7 @@ public class NewUserTest {
 		assertThat(newUser.toString(), is("Jen Diederich is 41. Email is jdiederich2@student.cvtc.edu. User name is JDiederich2. "
 				+ "Password is Apples"));
 	}
+	
+	
 
 }

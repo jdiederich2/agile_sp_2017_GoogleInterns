@@ -22,6 +22,7 @@ public class LoginDaoImpl {
 		try {
 				
 			connection = DBConnection.createConnection();
+			connection.setAutoCommit(false);
 			
 			statement = connection.createStatement(); 
 			              
@@ -34,6 +35,10 @@ public class LoginDaoImpl {
 				
 				if(userName.equals(userNameDB) && password.equals(passwordDB)) {
 					
+					connection.commit();
+					
+					connection.close();
+					
 					return "SUCCESS"; 
 				} 
 			 	  
@@ -43,8 +48,9 @@ public class LoginDaoImpl {
 				
 			}
 		
-			DBConnection.closeResultSet(resultSet);	
 			DBConnection.closeConnections(connection, statement);
+			DBConnection.closeResultSet(resultSet);	
+			
 			return "Invalid user credentials";
 	}
 }
