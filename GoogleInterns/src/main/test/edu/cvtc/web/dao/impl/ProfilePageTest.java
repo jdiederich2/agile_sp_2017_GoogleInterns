@@ -8,6 +8,7 @@ import org.junit.Test;
 public class ProfilePageTest {
 
 	private ProfilePage classUnderTest;
+	private String userNameDB = "";
 	
 	@Before
 	public void setUp() throws Exception {
@@ -18,7 +19,7 @@ public class ProfilePageTest {
 	@Test
 	public void testPopulateUserName() {
 		
-		String userName = 
+		String userName = userNameDB;
 		
 		
 	}
