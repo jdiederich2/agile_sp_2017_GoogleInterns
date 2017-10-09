@@ -15,7 +15,9 @@
 			<div class="container">
 				<p> Please see below all current listed requested or advertised rides.</p>
 			</div>
-
+			<div>
+				<jsp:include page="includes/rides.jsp"></jsp:include>
+			</div>
 			<hr>
 <%@ include file="includes/footer.jsp" %>
 		</div>
