@@ -9,8 +9,8 @@
 	</head>
 	
 	<body>
-		<div>
-			<a href="login.jsp">Login / Register</a>| 
+		<div class = "logOrReg">
+			<a href="login.jsp">Login / Register</a> 
 		</div>
 		<div>
 			<div> 
