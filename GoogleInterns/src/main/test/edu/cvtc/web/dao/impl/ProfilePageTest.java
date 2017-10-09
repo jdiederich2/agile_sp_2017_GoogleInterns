@@ -5,21 +5,24 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import edu.cvtc.web.dao.LoginDao;
+
 public class ProfilePageTest {
 
-	private ProfilePage classUnderTest;
+	private ProfilePage profilePage;
 	private String userNameDB = "";
 	
 	@Before
 	public void setUp() throws Exception {
 		
-		classUnderTest = new ProfilePage("userName");
+		profilePage = new ProfilePage();
 	}
 
 	@Test
 	public void testPopulateUserName() {
 		
-		String result = "";
+		userName = LoginBean.getUserName();
+		assertThat(profilePage.getUserName(), is(test@test.com)));
 			
 	}
 
