@@ -19,9 +19,8 @@ public class ProfilePageTest {
 	@Test
 	public void testPopulateUserName() {
 		
-		String userName = userNameDB;
-		
-		
+		String result = "";
+			
 	}
 
 }
