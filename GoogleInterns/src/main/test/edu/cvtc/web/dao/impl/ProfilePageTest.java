@@ -46,7 +46,7 @@ public class ProfilePageTest {
 	@Test
 	public void testPopulateUserName() {
 		User profile = new User("TestFName", "TestLName", 20, "test@test.com", "password");
-		assertThat(profile.getUserEmail(), equalTo(""));	
+		assertThat(profile.getUserEmail(), equalTo("test@test.com"));	
 	}
 	
 	@Test
