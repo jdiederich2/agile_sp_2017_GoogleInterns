@@ -57,6 +57,14 @@ public class ProfilePageTest {
 		
 	}
 	
+	@Test
+	public void testProfilePageUserName() {
+		LoginBean loginBean = new LoginBean();
+		loginBean.setUserName("test@test.com");
+		assertThat(profile.populateUserName(), equalTo("test@test.com"));
+		
+	}
+	
 	
 	
 	@Test
