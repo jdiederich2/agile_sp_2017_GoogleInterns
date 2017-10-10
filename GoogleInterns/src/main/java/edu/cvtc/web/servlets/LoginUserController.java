@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.LoginBean;
 import edu.cvtc.web.dao.impl.LoginDaoImpl;
+import edu.cvtc.web.dao.impl.ProfilePage;
 
 
 /**
@@ -31,6 +32,9 @@ public class LoginUserController extends HttpServlet {
 		LoginBean loginBean = new LoginBean();
 		loginBean.setUserName(userName);
 		loginBean.setPassword(password);
+		
+		ProfilePage profile = new ProfilePage();
+		profile.setEmail(userName);
 		
 		LoginDaoImpl loginDaoImpl = new LoginDaoImpl();
 		System.out.println("LUC LoginBean");
