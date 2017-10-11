@@ -6,9 +6,9 @@
 		<li class="dropdown">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">View Rides <b class="caret"></b></a>
 			<ul class="dropdown-menu">
-				<li><a href="viewRides.jsp">Unsorted</a></li>
-				<li><a href="viewRides.jsp?sortType=startingCity">By Starting City</a></li>
-				<li><a href="viewRides.jsp?sortType=endingCity">By Ending City</a></li>
+				<li><a href="ViewAll">Unsorted</a></li>
+				<li><a href="ViewAll?sortType=startingCity">By Starting City</a></li>
+				<li><a href="ViewAll?sortType=endingCity">By Ending City</a></li>
 			</ul>
 		</li>
 	</ul>
