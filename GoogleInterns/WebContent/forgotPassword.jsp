@@ -15,8 +15,6 @@
 			<div class="container">
 				<p>Please enter your email you signed up with and we will send you your password.</p>
 			</div>
-
-			<hr>
 <%@ include file="includes/footer.jsp" %>
 		</div>
 	</body>

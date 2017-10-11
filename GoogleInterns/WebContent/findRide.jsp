@@ -15,8 +15,6 @@
 			<div class="container">
 				<p> Search current ride request by event, location or date.</p>
 			</div>
-
-			<hr>
 <%@ include file="includes/footer.jsp" %>
 		</div>
 	</body>
