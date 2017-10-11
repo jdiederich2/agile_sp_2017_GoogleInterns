@@ -1,6 +1,7 @@
 html {
-	background: #3250BE;
+	background: black;
 	height: 100%;
+	
 }
 
 .container {  
@@ -14,10 +15,13 @@ html {
     text-shadow: 0 0 20px lightgrey;
     box-shadow: 0px 0px 5px 5px white;
     margin-bottom: 10px;
+    min-height: 500px;
+    vertical-align: center;
 }
 
 body {
 	text-align: center;
+
 }
 
 nav {
@@ -29,7 +33,7 @@ nav {
 
 nav ul {
 	margin: 0 auto;
-	width: 100%px;
+	width: 100%;
 	padding: 0;
 }
 
@@ -57,7 +61,7 @@ li {
 	text-decoration: none;
 	margin: 0 auto;
 	text-align: center;
-	display: block;
+	display: inline-block;
 	height: 30px;
 	width: 160px;
 	background: #738ADE;
@@ -93,8 +97,28 @@ input {
 	margin-top: 5px;
 }
 
+
+
+form {
+	background: lightgrey;
+	width: 50%;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, .5);
+}
+
+td {
+	text-align: right;
+	padding: 3px 5px;
+}
+
+td input {
+	width: 200px;
+}
+
 input[type="radio"] {
 	box-shadow: none;
+	width: 10px;
 }
 
 table {
