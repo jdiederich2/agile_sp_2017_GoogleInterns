@@ -99,6 +99,8 @@
 	                    </tr>
 	                    <tr>
 	                    	<td><input type="submit" value="Add New Ride" /></td>
+	                    	<td colspan="4"><span style="color:orange"><%=(request.getAttribute("message") == null) ? ""
+						: request.getAttribute("message")%></span></td>
 	                        <td><input type="reset" value="Reset" /></td>
 	                	</tr>                	
 	            	</tbody>
