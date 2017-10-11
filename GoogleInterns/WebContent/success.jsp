@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Movies: Success</title>
+		<title>UserCreation: Success</title>
 		<meta name= "description" content="JSP Success Page">
 <%@ include file="includes/styles.jsp" %>		
 	</head>
