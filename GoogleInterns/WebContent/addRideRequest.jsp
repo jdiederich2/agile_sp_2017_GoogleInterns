@@ -12,7 +12,7 @@
 				<h1>Add a Ride Request</h1>	
 			</div>
 <%@ include file="includes/navigation.jsp" %>
-			<div class="container">
+			<div class="content">
 				<p>Fill out the below form to request or advertise a ride share.</p>
 			</div>
 	        <form method="post" action="AddRide">
