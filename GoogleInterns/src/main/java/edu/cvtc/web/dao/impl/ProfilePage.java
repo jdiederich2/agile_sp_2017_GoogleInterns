@@ -1,6 +1,8 @@
 package edu.cvtc.web.dao.impl;
 
 
+import bean.LoginBean;
+import edu.cvtc.web.dao.LoginDao;
 import edu.cvtc.web.dao.PopulateProfile;
 import edu.cvtc.web.model.User;
 
@@ -19,13 +21,17 @@ public class ProfilePage extends User implements PopulateProfile {
 		return "";
 	}
 
-	public Object getUserName() {
-		return null;
+	public String getUserEmail(String userName) {
+		userName = LoginBean.getUserName();
+		
+		return userName;
 	}
 
-	public void setUserName(String userName) {
-		// TODO Auto-generated method stub
-		
+	public void setUserName() {	
+	}
+
+	public Object populateUserName() {
+		return null;
 	}
 
 }
