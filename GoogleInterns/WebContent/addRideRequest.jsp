@@ -104,7 +104,6 @@
 	            	</tbody>
 	        	</table>
 	        </form>
-			<hr>
 <%@ include file="includes/footer.jsp" %>
 		</div>
 	</body>

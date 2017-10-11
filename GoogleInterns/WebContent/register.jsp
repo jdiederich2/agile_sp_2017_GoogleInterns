@@ -7,7 +7,7 @@
 <%@ include file="includes/styles.jsp" %>	
 	</head>
     <body>
-      <div>			
+      <div class="container">			
       	<div class ="hero-unit"> 
         	<h1>New User Registration</h1>
         </div>
@@ -53,8 +53,7 @@
             	</tbody>
         	</table>
         </form>
-      </div>
-      <hr>
 <%@ include file="includes/footer.jsp" %>
+		</div>
 	</body>
 </html>

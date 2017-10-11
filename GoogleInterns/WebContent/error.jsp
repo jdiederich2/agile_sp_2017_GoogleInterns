@@ -7,12 +7,12 @@
 <%@ include file="includes/styles.jsp" %>		
 	</head>
 	<body>
-		<div>
+		<div class ="container">
 			<div>
 				<h1>Error</h1>
 			</div>
 <%@ include file="includes/navigation.jsp" %>
-			<div>
+			<div class="container">
 				<p>I'm sorry, but we seem to have a problem.</p>
 				<c:choose>
 					<c:when test="${message != null}">

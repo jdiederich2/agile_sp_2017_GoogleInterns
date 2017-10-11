@@ -18,7 +18,6 @@
 			<div>
 				<jsp:include page="includes/rides.jsp"></jsp:include>
 			</div>
-			<hr>
 <%@ include file="includes/footer.jsp" %>
 		</div>
 	</body>
