@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Hitchhicker's Guide to Chippewa Valley</title>
+		<title>Hitchhiker's Guide to Chippewa Valley</title>
 		<meta name="description" content="A app to find and advertise rides in the Chippwea Valley">
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <%@include file="includes/styles.jsp" %>
@@ -99,6 +99,8 @@
 	                    </tr>
 	                    <tr>
 	                    	<td><input type="submit" value="Add New Ride" /></td>
+	                    	<td colspan="4"><span style="color:orange"><%=(request.getAttribute("message") == null) ? ""
+						: request.getAttribute("message")%></span></td>
 	                        <td><input type="reset" value="Reset" /></td>
 	                	</tr>                	
 	            	</tbody>

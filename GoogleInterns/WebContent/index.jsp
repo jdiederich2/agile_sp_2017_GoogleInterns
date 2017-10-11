@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Hitchhicker's Guide to Chippewa Valley</title>
+		<title>Hitchhiker's Guide to Chippewa Valley</title>
 		<meta name="description" content="A app to find and advertise rides in the Chippwea Valley">
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<%@ include file="includes/styles.jsp" %>	
+<%@ include file="includes/styles.jsp" %>	
 
 	</head>
 	
@@ -12,10 +12,11 @@
 		<div class="container">
 			<div class = "logOrReg">
 				<a href="login.jsp">Login / Register</a> 
+
 			</div>
 			<div>
 				<div> 
-					<h1>The Hitchhicker's Guide to Chippewa Valley</h1>	
+					<h1>The Hitchhiker's Guide to Chippewa Valley</h1>	
 				</div>
 	
 				<div class="container">

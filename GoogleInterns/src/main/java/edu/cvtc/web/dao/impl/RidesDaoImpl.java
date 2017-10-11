@@ -2,7 +2,11 @@ package edu.cvtc.web.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import edu.cvtc.web.dao.RidesDao;
 import edu.cvtc.web.model.Rides;
@@ -10,6 +14,8 @@ import edu.cvtc.web.util.DBConnection;
 
 public class RidesDaoImpl implements RidesDao{
 
+	private static final String SELECT_ALL_FROM_RIDES = "select * from rides";
+	
 	public void insertNewRide(final Rides rides) throws RidesDaoException {
 		
 		Connection connection = null;
@@ -111,6 +117,53 @@ public class RidesDaoImpl implements RidesDao{
 			DBConnection.closeConnections(connection, ps);
 			return 0;
 		}
+	}
+	@Override
+	public List<Rides> retriveRides() throws Exception {
+
+		final List<Rides> ride = new ArrayList<>();
+		
+		//Notes: Read from the database
+		final Connection connection = DBConnection.createConnection();
+		final Statement statement =  connection.createStatement();
+		
+		try{
+			
+			statement.setQueryTimeout(DBConnection.TIMEOUT);
+			
+			final ResultSet resultSet  = statement.executeQuery(SELECT_ALL_FROM_RIDES);
+			
+			while(resultSet.next()) {
+				final String userName = resultSet.getString("userName");
+				final String driverOrPassanger = resultSet.getString("driverOrPassanger");
+				final String startingAddressLn1 = resultSet.getString("startingAddressLn1");
+				final String startingAddressLn2 = resultSet.getString("startingAddressLn2");
+				final String startingCity = resultSet.getString("startingCity");
+				final String startingState = resultSet.getString("startingState");
+				final String startingDate = resultSet.getString("startingDate");
+				final String startingTime = resultSet.getString("startingTime");
+				final String endingAddressLn1 = resultSet.getString("endingAddressLn1");
+				final String endingAddressLn2 = resultSet.getString("endingAddressLn2");
+				final String endingCity = resultSet.getString("endingCity");
+				final String endingState = resultSet.getString("endingState");
+				final String returnDate = resultSet.getString("returnDate");
+				final String returnTime = resultSet.getString("returnTime");
+				final int numberOfPassangers = resultSet.getInt("numberOfPassangers");
+				final String allowSmoking = resultSet.getString("allowSmoking");
+				final int gas = resultSet.getInt("gas");
+				
+				final Rides rides = new Rides(userName, driverOrPassanger, startingAddressLn1, startingAddressLn2, startingCity, startingState, 
+						startingDate, startingTime, endingAddressLn1, endingAddressLn2, endingCity, endingState, returnDate, returnTime, numberOfPassangers,
+						allowSmoking, gas);
+				ride.add(rides);
+			}
+			
+			resultSet.close();
+			
+		} finally {
+			DBConnection.closeConnections(connection, statement);
+		}
+		return ride;
 	}
 
 }
