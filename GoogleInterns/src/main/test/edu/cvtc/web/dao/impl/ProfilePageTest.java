@@ -23,6 +23,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 
+import org.hamcrest.Matcher;
 import org.hamcrest.core.CombinableMatcher;
 import org.junit.Test;
 
@@ -32,7 +33,7 @@ import bean.LoginBean;
 import edu.cvtc.web.dao.LoginDao;
 import edu.cvtc.web.model.User;
 
-public class ProfilePageTest {
+public class ProfilePageTest<Answer> {
 
 	private ProfilePage profile;
 	private String userName = "";
@@ -58,12 +59,21 @@ public class ProfilePageTest {
 	}
 	
 	@Test
-	public void testProfilePageUserName() {
+	public void testProfilePageUserEmail() {
 		LoginBean loginBean = new LoginBean();
 		loginBean.setUserName("test@test.com");
 		assertThat(profile.getUserEmail(userName), equalTo("test@test.com"));
 		
 	}
+	
+	@Test
+	public void testProfilePagefirstName() {
+		LoginBean loginBean = new LoginBean();
+		loginBean.setUserName("test@test.com");
+		assertThat(profile.getfirstName(), equalTo("Quin"));
+	}
+	
+	
 	
 	
 	

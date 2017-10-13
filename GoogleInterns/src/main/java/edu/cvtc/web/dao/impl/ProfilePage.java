@@ -34,6 +34,10 @@ public class ProfilePage extends User implements PopulateProfile {
 		return null;
 	}
 
+	public Object getFirstName(String firstName) {
+		return firstName = firstName;
+	}
+
 }
 
 

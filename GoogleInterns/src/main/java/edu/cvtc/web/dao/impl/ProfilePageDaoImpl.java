@@ -5,7 +5,7 @@ import java.sql.*;
 import bean.LoginBean;
 import edu.cvtc.web.util.DBConnection;
 
-public class LoginDaoImpl {
+public class ProfilePageDaoImpl {
 	
 	public String authenticateUser(LoginBean loginBean) throws ClassNotFoundException {
 		
@@ -13,10 +13,12 @@ public class LoginDaoImpl {
 		Statement statement = null;
 		ResultSet resultSet = null;
 		
-		String userName = loginBean.getUserName(); 
-		String password = loginBean.getPassword();
-	
-		String userNameDB = "";
+		String firstName = loginBean.getUserName(); 
+		
+		String firstNameDB = "";
+		String lastNameDB = "";
+		int ageDB = 0;
+		String emailDB = "";
 		String passwordDB = "";
 		
 		try {
@@ -25,12 +27,15 @@ public class LoginDaoImpl {
 			connection.setAutoCommit(false);
 			
 			statement = connection.createStatement(); 
-			
-			resultSet = statement.executeQuery("SELECT userEmail, password FROM newUser");  
+			              
+			resultSet = statement.executeQuery("SELECT firstName, lastName, age, userEmail, password FROM newUser");  
 			
 			while(resultSet.next()) {  
 				
-				userNameDB = resultSet.getString("userEmail"); 
+				firstNameDB = resultSet.getString("firstName");
+				lastNameDB = resultSet.getString("lastName");
+				ageDB = resultSet.getInt("age");
+				emailDB = resultSet.getString("userEmail"); 
 				passwordDB = resultSet.getString("password");
 				
 				if(userName.equals(userNameDB) && password.equals(passwordDB)) {
