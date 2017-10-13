@@ -12,7 +12,7 @@
 				<h1>Find a Passenger</h1>	
 			</div>
 <%@ include file="includes/navigation.jsp" %>
-			<div class="container">
+			<div class="content">
 				<p> Search current ride request by event, location or date.</p>
 			</div>
 <%@ include file="includes/footer.jsp" %>

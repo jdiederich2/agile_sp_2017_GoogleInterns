@@ -12,7 +12,7 @@
         	<h1>New User Registration</h1>
         </div>
 <%@ include file="includes/navigation.jsp" %>
-        <div class="container">
+        <div class="content">
         	<p> Please fill out below to register for our site.</p>
      	</div>	
         <form method="post" action="AddUser">
@@ -25,30 +25,30 @@
                 <tbody>
                     <tr>
                         <td>First Name</td>
-                        <td><input type="text" name="firstName" value="" placeholder="First Name" required /></td>
+                        <td class ="input"><input type="text" name="firstName" value="" placeholder="First Name" required /></td>
                     </tr>
                     <tr>
                         <td>Last Name</td>
-                        <td><input type="text" name="lastName" value="" placeholder="Last Name" required /></td>
+                        <td class ="input"><input type="text" name="lastName" value="" placeholder="Last Name" required /></td>
                     </tr>
                     <tr>
                         <td>Age</td>
-                        <td><input type="text" name="age" value="" placeholder="Age in years" required /></td>
+                        <td class ="input"><input type="text" name="age" value="" placeholder="Age in years" required /></td>
                     </tr>
                     <tr>
                         <td>E-mail Address</td>
-                        <td><input type="email" name="userEmail" value="" placeholder="E-mail Address" required /></td>
+                        <td class ="input"><input type="email" name="userEmail" value="" placeholder="E-mail Address" required /></td>
                     
                     	<td colspan="4"><span style="color:orange"><%=(request.getAttribute("errMessage") == null) ? ""
 						: request.getAttribute("errMessage")%></span></td>
                     </tr>
                     <tr>
                         <td>Password</td>
-                        <td><input type="password" name="password" value="" placeholder="Password" required /></td>
+                        <td class ="input"><input type="password" name="password" value="" placeholder="Password" required /></td>
                     </tr>
                     <tr>
                     	<td><input type="submit" value="Add New User" /></td>
-                        <td><input type="reset" value="Reset" /></td>
+                        <td class ="input"><input type="reset" value="Reset" /></td>
                 	</tr>                	
             	</tbody>
         	</table>
