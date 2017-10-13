@@ -12,7 +12,7 @@
 				<h1>All Rides</h1>	
 			</div>
 <%@ include file="includes/navigation.jsp" %>
-			<div class="container">
+			<div class="content">
 				<p> Please see below all current listed requested or advertised rides.</p>
 			</div>
 			<div>
