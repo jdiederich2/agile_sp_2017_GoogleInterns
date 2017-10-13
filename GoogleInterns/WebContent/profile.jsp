@@ -23,6 +23,10 @@
                     </tr>
                 </thead>
                 <tbody>
+                	<tr>
+                   		<td>E-mail Address</td>
+                        <td><input type="email" name="userEmail" value="" placeholder="E-mail Address" required /></td>
+                    </tr>
                     <tr>
                         <td>First Name</td>
                         <td><input type="text" name="firstName" value="" placeholder="First Name" required /></td>
@@ -35,13 +39,7 @@
                         <td>Age</td>
                         <td><input type="text" name="age" value="" placeholder="Age in years" required /></td>
                     </tr>
-                    <tr>
-                        <td>E-mail Address</td>
-                        <td><input type="email" name="userEmail" value="" placeholder="E-mail Address" required /></td>
                     
-                    	<td colspan="4"><span style="color:orange"><%=(request.getAttribute("errMessage") == null) ? ""
-						: request.getAttribute("errMessage")%></span></td>
-                    </tr>
                     <tr>
                         <td>Password</td>
                         <td><input type="password" name="password" value="" placeholder="Password" required /></td>
