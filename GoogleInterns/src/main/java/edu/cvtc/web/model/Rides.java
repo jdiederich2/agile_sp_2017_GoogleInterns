@@ -50,6 +50,7 @@ public class Rides implements Serializable {
 	}
 
 
+	
 	public String getUserName() {
 		return userName;
 	}
@@ -192,9 +193,7 @@ public class Rides implements Serializable {
 
 	@Override
 	public String toString() {
-		return userName + " " + startingAddressLn1 + " " + startingAddressLn2 + " " + startingCity + " " + startingState + ", startingDate=" + startingDate 
-				+ " " + startingTime + ", endingAddressLn1=" + endingAddressLn1 + " " + endingAddressLn2 + " " + endingCity + " " + endingState 
-				+ " " + returnDate + " " + returnTime + " " + numberOfPassangers + " " + allowSmoking + " " + gas;
+		return "userName=" + userName + ", driverOrPassanger=" + driverOrPassanger + ", startingAddressLn1=" + startingAddressLn1 + ", startingAddressLn2=" + startingAddressLn2 + ", startingCity=" + startingCity + ", startingState=" + startingState + ", startingDate=" + startingDate + ", startingTime=" + startingTime + ", endingAddressLn1=" + endingAddressLn1 + ", endingAddressLn2=" + endingAddressLn2 + ", endingCity=" + endingCity + ", endingState=" + endingState + ", returnDate=" + returnDate + ", returnTime=" + returnTime + ", numberOfPassangers=" + numberOfPassangers + ", allowSmoking=" + allowSmoking + ", gas=" + gas;
 	}
 
 }
