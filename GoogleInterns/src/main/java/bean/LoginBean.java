@@ -6,7 +6,7 @@ package bean;
  *
  */
 public class LoginBean  {  
-	private  String userName;
+	private static  String userName;
 	private String password;
 	  
 	public String userName() {  
@@ -14,15 +14,15 @@ public class LoginBean  {
 	}  
 	  
 	public void userName(String userName) {  
-	    this.userName = userName;  
+	    LoginBean.userName = userName;  
 	}  
 	
-	public String getUserName() {
+	public static String getUserName() {
 		return userName;
 	}
 	
 	public void setUserName(String userName) {
-		this.userName = userName;
+		LoginBean.userName = userName;
 	} 
 	  
 	public String getPassword() {  

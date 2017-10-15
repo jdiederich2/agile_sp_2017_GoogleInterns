@@ -13,7 +13,7 @@ public class ProfilePageDaoImpl {
 		Statement statement = null;
 		ResultSet resultSet = null;
 		
-		String firstName = loginBean.getUserName(); 
+		String userEmail = LoginBean.getUserName(); 
 		
 		String firstNameDB = "";
 		String lastNameDB = "";
@@ -38,7 +38,7 @@ public class ProfilePageDaoImpl {
 				emailDB = resultSet.getString("userEmail"); 
 				passwordDB = resultSet.getString("password");
 				
-				if(userName.equals(userNameDB) && password.equals(passwordDB)) {
+				if(userEmail.equals(emailDB)) {
 					
 					connection.commit();
 					

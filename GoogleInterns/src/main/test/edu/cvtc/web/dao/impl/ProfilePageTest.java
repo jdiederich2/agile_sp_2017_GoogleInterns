@@ -70,7 +70,7 @@ public class ProfilePageTest<Answer> {
 	public void testProfilePagefirstName() {
 		LoginBean loginBean = new LoginBean();
 		loginBean.setUserName("test@test.com");
-		assertThat(profile.getfirstName(), equalTo("Quin"));
+		assertThat(profile.getFirstName(), equalTo("Quin"));
 	}
 	
 	

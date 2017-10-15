@@ -28,6 +28,6 @@ public class DbConnectionTest {
 			connectSuccess = false;
 		} 
 		
-		assertThat(connectSuccess, is("true"));
+		assertThat(connectSuccess, is(true));
 	}
 }
