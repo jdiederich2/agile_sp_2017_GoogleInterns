@@ -9,11 +9,26 @@
 	<body>
 		<div class="container">
 			<div class ="hero-unit"> 
-				<h1>Find a Passenger</h1>	
+				<h1>Find a Ride</h1>	
 			</div>
+	
+			
 <%@ include file="includes/navigation.jsp" %>
 			<div class="content">
-				<p> Search current ride request by event, location or date.</p>
+				<p> Search for a ride and passangers by Starting or Ending City.</p>
+				
+				<form action="Search">
+					<label for="startingCity"><strong>Search by Starting City:</strong></label>
+					<input name="startingCity">
+					<input type="hidden" name="searchType" value="startingCity">
+					<input type="submit" value="Search!">
+				</form>
+				<form action="Search">
+					<label for="endingCity"><strong>Search by Ending City:</strong></label>
+					<input name="endingCity">
+					<input type="hidden" name="searchType" value="endingCity">
+					<input type="submit" value="Search!">
+				</form>		
 			</div>
 <%@ include file="includes/footer.jsp" %>
 		</div>
