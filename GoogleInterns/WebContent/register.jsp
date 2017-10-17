@@ -24,31 +24,26 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>First Name</td>
-                        <td class ="input"><input type="text" name="firstName" value="" placeholder="First Name" required /></td>
+                        <td><input class ="inputPerson" type="text" name="firstName" value="" placeholder="First Name" required /></td>
                     </tr>
                     <tr>
-                        <td>Last Name</td>
-                        <td class ="input"><input type="text" name="lastName" value="" placeholder="Last Name" required /></td>
+                        <td><input class ="inputPerson" type="text" name="lastName" value="" placeholder="Last Name" required /></td>
                     </tr>
                     <tr>
-                        <td>Age</td>
-                        <td class ="input"><input type="text" name="age" value="" placeholder="Age in years" required /></td>
+                        <td><input class ="inputPerson" type="text" name="age" value="" placeholder="Age in years" required /></td>
                     </tr>
                     <tr>
-                        <td>E-mail Address</td>
-                        <td class ="input"><input type="email" name="userEmail" value="" placeholder="E-mail Address" required /></td>
+                        <td><input class ="inputPerson" type="email" name="userEmail" value="" placeholder="E-mail Address" required /></td>
                     
                     	<td colspan="4"><span style="color:orange"><%=(request.getAttribute("errMessage") == null) ? ""
 						: request.getAttribute("errMessage")%></span></td>
                     </tr>
                     <tr>
-                        <td>Password</td>
-                        <td class ="input"><input type="password" name="password" value="" placeholder="Password" required /></td>
+                        <td><input class ="inputPerson" type="password" name="password" value="" placeholder="Password" required /></td>
                     </tr>
                     <tr>
-                    	<td><input type="submit" value="Add New User" /></td>
-                        <td class ="input"><input type="reset" value="Reset" /></td>
+                    	<td><input class ="inputPersonSubmit" type="submit" value="Add New User" /></td>
+                        <td id = "personResetButton"><input class ="inputPersonSubmit" type="reset" value="Reset" /></td>
                 	</tr>                	
             	</tbody>
         	</table>
