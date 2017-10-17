@@ -15,7 +15,7 @@
         <div>
         	<p> Please fill out below to register for our site.</p>
      	</div>	
-        <form method="post" action=" ">
+        <form method="post" action="ProfilePage">
         	<table>
                 <thead>
                     <tr>

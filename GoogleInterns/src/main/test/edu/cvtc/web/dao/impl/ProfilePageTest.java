@@ -31,6 +31,7 @@ import org.junit.Before;
 
 import bean.LoginBean;
 import edu.cvtc.web.dao.LoginDao;
+import edu.cvtc.web.model.ProfilePage;
 import edu.cvtc.web.model.User;
 
 public class ProfilePageTest<Answer> {
@@ -69,7 +70,7 @@ public class ProfilePageTest<Answer> {
 	@Test
 	public void testProfilePagefirstName() {
 		LoginBean loginBean = new LoginBean();
-		loginBean.setUserName("test@test.com");
+		profile.populateProfilePage("test@test.com");
 		assertThat(profile.getFirstName(), equalTo("Quin"));
 	}
 	

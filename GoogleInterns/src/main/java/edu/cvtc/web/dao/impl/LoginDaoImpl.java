@@ -13,7 +13,7 @@ public class LoginDaoImpl {
 		Statement statement = null;
 		ResultSet resultSet = null;
 		
-		String userName = loginBean.getUserName(); 
+		String userName = LoginBean.getUserName(); 
 		String password = loginBean.getPassword();
 	
 		String userNameDB = "";

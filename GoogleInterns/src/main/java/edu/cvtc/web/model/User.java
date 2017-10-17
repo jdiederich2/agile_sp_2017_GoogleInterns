@@ -61,8 +61,8 @@ public class User implements Serializable {
 		return userEmail;
 	}
 
-	public void setEmail(String userEmail) {
-		this.userEmail = userEmail;
+	public static void setEmail(String userEmail) {
+		
 	}
 
 	public String getPassword() {

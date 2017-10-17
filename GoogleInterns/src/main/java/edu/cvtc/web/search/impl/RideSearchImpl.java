@@ -20,6 +20,7 @@ import edu.cvtc.web.search.RideSearch;
  *
  */
 public class RideSearchImpl implements RideSearch {
+	
 	private static final String EXCPTION_Message = "List Of Rides could not be retrived from database.";
 
 	@Override

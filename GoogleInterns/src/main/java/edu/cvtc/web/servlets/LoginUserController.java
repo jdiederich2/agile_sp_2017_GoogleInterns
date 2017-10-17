@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.LoginBean;
 import edu.cvtc.web.dao.impl.LoginDaoImpl;
-import edu.cvtc.web.dao.impl.ProfilePage;
+import edu.cvtc.web.model.ProfilePage;
 
 
 /**
@@ -33,8 +33,8 @@ public class LoginUserController extends HttpServlet {
 		loginBean.setUserName(userName);
 		loginBean.setPassword(password);
 		
-		ProfilePage profile = new ProfilePage();
-		profile.setEmail(userName);
+
+		ProfilePage.setEmail(userName);
 		
 		LoginDaoImpl loginDaoImpl = new LoginDaoImpl();
 		System.out.println("LUC LoginBean");
@@ -46,7 +46,7 @@ public class LoginUserController extends HttpServlet {
 		if (userValidate.equals("SUCCESS")) {
 			
 			request.setAttribute("userName", userName);
-			request.getRequestDispatcher("/home.jsp").forward(request, response);;
+			request.getRequestDispatcher("/home.jsp").forward(request, response);
 			System.out.println("LUC setAttribute");
 		
 		}  else {  
