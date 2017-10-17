@@ -18,12 +18,12 @@ pageEncoding="ISO-8859-1"%>
 				<div> 
 					<h1>View Rides</h1>	
 				</div>
-				<%@ include file="includes/navigation.jsp" %>
+<%@ include file="includes/navigation.jsp" %>
 	
 				<div class="content">
 					<jsp:include page="includes/rides.jsp"></jsp:include>
 				</div>
-				<%@ include file="includes/footer.jsp" %>
+<%@ include file="includes/footer.jsp" %>
 			</div>
 
 		</div>

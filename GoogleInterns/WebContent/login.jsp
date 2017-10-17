@@ -45,7 +45,7 @@ pageEncoding="ISO-8859-1"%>
 	            </table>
 	      	</form>
 		</div>
-		<%@ include file="includes/footer.jsp" %>
+<%@ include file="includes/footer.jsp" %>
 	</div>
 </body>
 </html>
