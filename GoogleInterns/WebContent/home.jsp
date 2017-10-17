@@ -20,7 +20,7 @@ pageEncoding="ISO-8859-1"%>
 					<br>
 					<!--Welcome <%=request.getAttribute("userName") %>    -->
 				</div>
-				<%@ include file="includes/navigation.jsp" %>
+<%@ include file="includes/navigation.jsp" %>
 				<div class="content">
 					<div>
 						<h2>Need a ride? Need money for gas? Try Chippewa Valley rideshare, it's easier then sticking out your thumb!!</h2>
@@ -34,7 +34,7 @@ pageEncoding="ISO-8859-1"%>
 						<div class="tile"></div>
 					</div>
 				</div>
-				<%@ include file="includes/footer.jsp" %>
+<%@ include file="includes/footer.jsp" %>
 			</div>
 		</div>
 	</body>
