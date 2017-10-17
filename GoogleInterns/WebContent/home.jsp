@@ -22,7 +22,7 @@ pageEncoding="ISO-8859-1"%>
 				</div>
 <%@ include file="includes/navigation.jsp" %>
 				<div class="content">
-					<div>
+					<div id = "home">
 						<h2>Need a ride? Need money for gas? Try Chippewa Valley rideshare, it's easier then sticking out your thumb!!</h2>
 						<p>This app will allow you to advertise rides to events and locations along with finding out if people are going where you are.
 						With this rideshare application you can feel better about what kind of carbon footprint you leave.</p>

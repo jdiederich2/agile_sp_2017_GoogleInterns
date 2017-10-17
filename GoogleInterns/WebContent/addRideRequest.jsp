@@ -24,84 +24,56 @@
 	                </thead>
 	                <tbody>
 	                    <tr>
-	                        <td>User Name</td>
-	                        <td class ="input"><input type="email" name="userName" value="" placeholder="User Name" required /></td>
+	                        <td><input class ="inputRideFull" type="email" name="userName" value="" placeholder="Email/Username" required /></td>
 	                    </tr>
 	                    <tr>
-	                        <td>Looking For</td>
-	                        <td class ="input">
-	                        	<input type="radio" name="driverOrPassanger" value="Driver" required="required"> Driver
-	                        	<input type="radio" name="driverOrPassanger" value="Passenger" required="required"> Passenger
-	                        </td>
+	                        <td class ="inputRideHalf"><input type="radio" name="driverOrPassanger" value="Driver" required="required"> Driver</td>
+	                        <td class ="input"><input type="radio" name="driverOrPassanger" value="Passenger" required="required"> Passenger</td>
 	                    </tr>
 	                    <tr>
-	                        <td>Start Address Line 1</td>
-	                        <td class ="input"><input type="text" name="startingAddressLn1" value="" placeholder="Start Address Line 1" required /></td>
+	                        <td><input class ="inputRideFull" type="text" name="startingAddressLn1" value="" placeholder="Start Address Line 1" required /></td>
 	                    </tr>
 	                    <tr>
-	                        <td>Start Address Line 2</td>
-	                        <td class ="input"><input type="text" name="startingAddressLn2" value="" placeholder="Start Address Line 2"/></td>
+	                        <td><input class ="inputRideFull" type="text" name="startingAddressLn2" value="" placeholder="Start Address Line 2"/></td>
 	                    </tr>
 	                    <tr>
-	                        <td>Start City</td>
-	                        <td class ="input"><input type="text" name="startingCity" value="" placeholder="Start City" required /></td>
+	                        <td class ="inputRideHalf"><input type="text" name="startingCity" value="" placeholder="Start City" required /></td>
+	                        <td class ="inputRideHalf"><input type="text" name="startingState" value="" placeholder="Starting State" required /></td>
 	                    </tr>
 	                    <tr>
-	                        <td>Start State</td>
-	                        <td class ="input"><input type="text" name="startingState" value="" placeholder="Starting State" required /></td>
+	                        <td class ="inputRideHalf"><input type="date" name="startingDate" value="" required /></td>
+	                        <td class ="inputRideHalf"><input type="time" name="startingTime" value="12:00" required /></td>
 	                    </tr>
 	                    <tr>
-	                    	<td>Starting Travel Date</td>
-	                        <td class ="input"><input type="date" name="startingDate" value="" required /></td>
+	                        <td><input class ="inputRideFull" type="text" name="endingAddressLn1" value="" placeholder="Ending Address Line 1"/></td>
 	                    </tr>
 	                    <tr>
-	                        <td>Starting Travel Time</td>
-	                        <td class ="input"><input type="time" name="startingTime" value="12:00" required /></td>
-	                    </tr>
-	                    <tr>
-	                        <td>Ending Address Line 1</td>
-	                        <td class ="input"><input type="text" name="endingAddressLn1" value="" placeholder="Ending Address Line 1"/></td>
-	                    </tr>
-	                    <tr>
-	                        <td>Ending Address Line 2</td>
-	                        <td class ="input"><input type="text" name="endingAddressLn2" value="" placeholder="Ending Address Line 2"/></td>
+	                        <td><input class ="inputRideFull" type="text" name="endingAddressLn2" value="" placeholder="Ending Address Line 2"/></td>
 	                    </tr>
 	                     <tr>
-	                        <td>Ending City</td>
-	                        <td class ="input"><input type="text" name="endingCity" value="" placeholder="Ending City"/></td>
+	                        <td class ="inputRideHalf"><input type="text" name="endingCity" value="" placeholder="Ending City"/></td>
+	                        <td class ="inputRideHalf"><input type="text" name="endingState" value="" placeholder="Ending State"/></td>
 	                    </tr>
 	                    <tr>
-	                        <td>Ending State</td>
-	                        <td class ="input"><input type="text" name="endingState" value="" placeholder="Ending State"/></td>
+	                        
+	                        <td class ="inputRideHalf"><input type="date" name="returnDate" value="" /></td>
+	                        <td class ="inputRideHalf"><input type="time" name="returnTime" value="12:00" /></td>
 	                    </tr>
 	                    <tr>
-	                        <td>Return Travel Date</td>
-	                        <td class ="input"><input type="date" name="returnDate" value="" /></td>
+	                        <td class ="inputRideHalf"><input type="text" name="numberOfPassangers" value="" placeholder = "# of Passangers" required/></td>	                        
+	                        <td class ="inputRideHalf"><input type="text" name="gas" value="" min="1" placeholder= "Passanger Cost $$$" required/></td>	                        
 	                    </tr>
 	                    <tr>
-	                        <td>Return Travel Time</td>
-	                        <td class ="input"><input type="time" name="returnTime" value="12:00" /></td>
+	                        <td class ="inputRideHalf"><input type="radio" name="smokeChoice" value="Smoking" required="required"> Smoking</td>
+	                        <td class ="input"><input type="radio" name="smokeChoice" value="Non-Smoking" required="required"> Non-Smoking</td>
 	                    </tr>
 	                    <tr>
-	                        <td>Number Of Passengers</td>
-	                        <td class ="input"><input type="text" name="numberOfPassangers" value="" placeholder = "# of Passangers" required/></td>	                        
+		                    <td colspan="4"><span style="color:orange"><%=(request.getAttribute("message") == null) ? ""
+							: request.getAttribute("message")%></span></td>
 	                    </tr>
 	                    <tr>
-	                        <td>Smoking or Non-smoking</td>
-	                        <td class ="input">
-	                        	<input type="radio" name="smokeChoice" value="Smoking" required="required"> Smoking
-	                        	<input type="radio" name="smokeChoice" value="Non-Smoking" required="required"> Non-Smoking
-	                        </td>
-	                    </tr>
-	                    <tr>
-	                        <td>Gas Cost</td>
-	                        <td class ="input">$<input type="text" name="gas" value="" min="1" placeholder= "Passanger Cost" required/></td>	                        
-	                    </tr>
-	                    <tr>
-	                    	<td><input type="submit" value="Add New Ride" /></td>
-	                    	<td colspan="4"><span style="color:orange"><%=(request.getAttribute("message") == null) ? ""
-						: request.getAttribute("message")%></span></td>
-	                        <td class ="input"><input type="reset" value="Reset" /></td>
+	                    	<td class = "inputRideHalf"><input type="submit" value="Add New Ride" /></td>
+	                        <td class = "inputRideHalf"><input type="reset" value="Reset" /></td>
 	                	</tr>                	
 	            	</tbody>
 	        	</table>
