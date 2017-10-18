@@ -54,10 +54,11 @@ public class RidesController  extends HttpServlet {
 		final String allowSmoking = request.getParameter("allowSmoking");
 		final String gasString = request.getParameter("gas");
 		
+		System.out.print("Ride start");
+		
 		if (Strings.isNullOrEmpty(userName)
 				|| Strings.isNullOrEmpty(driverOrPassanger)
 				|| Strings.isNullOrEmpty(startingAddressLn1)
-				|| Strings.isNullOrEmpty(startingAddressLn2)
 				|| Strings.isNullOrEmpty(startingCity)
 				|| Strings.isNullOrEmpty(startingState)
 				|| Strings.isNullOrEmpty(startingDate)) {
@@ -65,6 +66,7 @@ public class RidesController  extends HttpServlet {
 			request.setAttribute("message", "You must complete all fields to submit the form.");
 			target = "error.jsp";
 			
+			System.out.print("Ride if statement");
 			
 		} else {
 			try {

@@ -15,42 +15,23 @@
         <div>
         	<p> Please fill out below to register for our site.</p>
      	</div>	
-        <form method="post" action="ProfilePage">
-        	<table>
-                <thead>
-                    <tr>
-                	    <th colspan="2">User Information</th>
-                    </tr>
-                </thead>
-                <tbody>
-                	<tr>
-                   		<td>E-mail Address</td>
-                        <td><input type="email" name="userEmail" value="" placeholder="E-mail Address" required /></td>
-                    </tr>
-                    <tr>
-                        <td>First Name</td>
-                        <td><input type="text" name="firstName" value="" placeholder="First Name" required /></td>
-                    </tr>
-                    <tr>
-                        <td>Last Name</td>
-                        <td><input type="text" name="lastName" value="" placeholder="Last Name" required /></td>
-                    </tr>
-                    <tr>
-                        <td>Age</td>
-                        <td><input type="text" name="age" value="" placeholder="Age in years" required /></td>
-                    </tr>
-                    
-                    <tr>
-                        <td>Password</td>
-                        <td><input type="password" name="password" value="" placeholder="Password" required /></td>
-                    </tr>
-                    <tr>
-                    	<td><input type="submit" value="" /></td>
-                        <td><input type="reset" value="" /></td>
-                	</tr>                	
-            	</tbody>
-        	</table>
-        </form>
+        <c:choose>
+			<c:when test= "${empty user}">
+			 	<p>Sorry, user not found.</p>
+		 	</c:when>
+		 	<c:otherwise>
+		 		<c:forEach var="user" items="${user}">
+		 			<div>
+			 			<div>
+			 				<h2>${user.firstName} &nbsp;${user.lastName} </h2> 
+			 				<p>${user.age} </p>
+			 				<p>${user.email}</p>
+			 				<p>${user.password}</p> 
+			 			</div>
+		 			</div>
+		 		</c:forEach>
+		 	</c:otherwise>					 
+		</c:choose>
       </div>
       <hr>
 <%@ include file="includes/footer.jsp" %>

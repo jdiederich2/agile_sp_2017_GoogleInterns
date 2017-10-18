@@ -31,18 +31,15 @@ import org.junit.Before;
 
 import bean.LoginBean;
 import edu.cvtc.web.dao.LoginDao;
-import edu.cvtc.web.model.ProfilePage;
 import edu.cvtc.web.model.User;
 
 public class ProfilePageTest<Answer> {
 
-	private ProfilePage profile;
 	private String userName = "";
 	
 	@Before
 	public void setUp() throws Exception {
 		
-		profile = new ProfilePage();
 	}
 
 	@Test
@@ -63,20 +60,20 @@ public class ProfilePageTest<Answer> {
 	public void testProfilePageUserEmail() {
 		LoginBean loginBean = new LoginBean();
 		loginBean.setUserName("test@test.com");
-		assertThat(profile.getUserEmail(userName), equalTo("test@test.com"));
+		assertThat(loginBean.getUserEmail(userName), equalTo("test@test.com"));
 		
 	}
 	
 	@Test
 	public void testProfilePagefirstName() {
 		LoginBean loginBean = new LoginBean();
-		profile.populateProfilePage("test@test.com");
-		assertThat(profile.getFirstName(), equalTo("Quin"));
+		try {
+			ProfilePageDaoImpl.populateProfilePage("test@test.com");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+
 	}
-	
-	
-	
-	
 	
 	@Test
 	public void testLoginUserNameField () {

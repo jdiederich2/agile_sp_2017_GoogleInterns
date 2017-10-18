@@ -1,15 +1,17 @@
 package edu.cvtc.web.servlets;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.LoginBean;
+import edu.cvtc.web.dao.PopulateProfileDao;
 import edu.cvtc.web.dao.impl.ProfilePageDaoImpl;
-import edu.cvtc.web.model.ProfilePage;
+import edu.cvtc.web.model.User;
 
 /**
  * Servlet implementation class ProfilePageController
@@ -20,27 +22,23 @@ public class ProfilePageController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 
-    public ProfilePageController() {
-    }
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		LoginBean login = new LoginBean();
-		final String userEmail = LoginBean.getUserName();
-		
-		ProfilePageDaoImpl profilePageDaoImpl = new ProfilePageDaoImpl();
-		System.out.println("PPDI");
+
+		String target = null;
 		
 		try {
-			String populateProfile = profilePageDaoImpl.populateProvilePage(login);
-			System.out.println("PP populateProfilePage");
 			
-			request.setAttribute("userEmail", userEmail);
-			request.getRequestDispatcher("/profile.jsp").forward(request, response);
+			final PopulateProfileDao populateProfileDao = new ProfilePageDaoImpl();
+			
+			final List<User> user = populateProfileDao.populateProfilePage();
+
+			request.setAttribute("user", user);
+			
+			target = "profile.jsp";
 			
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
+			target = "error.jsp";
 		}
 	}
 
@@ -48,7 +46,6 @@ public class ProfilePageController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

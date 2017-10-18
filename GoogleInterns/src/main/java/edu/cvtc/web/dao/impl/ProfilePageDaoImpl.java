@@ -1,76 +1,77 @@
 package edu.cvtc.web.dao.impl;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import bean.LoginBean;
 import edu.cvtc.web.dao.PopulateProfileDao;
-import edu.cvtc.web.model.ProfilePage;
+import edu.cvtc.web.model.User;
 import edu.cvtc.web.util.DBConnection;
 
-public class ProfilePageDaoImpl implements PopulateProfileDao{
+public class ProfilePageDaoImpl implements PopulateProfileDao {
 	
-	private static final String SELECT_USERNAME_FROM_USER = "SELECT firstName, lastName, age, userEmail, password FROM newUser";  
+	private static final String SELECT_USERNAME_FROM_USER = "SELECT (firstName, lastName, age, userEmail, password) FROM newUser WHERE userEmail = (?);";  
+
+	public static List<User> populateProfilePage(String string) throws ClassNotFoundException {
+		
 		Connection connection = null;
-		Statement statement = null;
+		PreparedStatement ps = null;
 		ResultSet resultSet = null;
 		
-		String userEmail = "";
-		
-		userEmail = loginBean.setUserName(userEmail); 
-		
-		String firstNameDB = "";
-		String lastNameDB = "";
-		int ageDB = 0;
-		String emailDB = "";
-		String passwordDB = "";
-		
 		try {
-				
+			
 			connection = DBConnection.createConnection();
+
+			ps = connection.prepareStatement(SELECT_USERNAME_FROM_USER);
+			
+			ps.setString(1, LoginBean.getUserName());
+			
+			String userEmailDB = LoginBean.getUserName(); 
+		
+			
+			final List<User> user = new ArrayList<>();
+
 			connection.setAutoCommit(false);
 			
+			Statement statement = null;
 			statement = connection.createStatement(); 
 			              
 			
+			resultSet = statement.executeQuery(SELECT_USERNAME_FROM_USER);
 			
 			while(resultSet.next()) {  
 				
-				firstNameDB = resultSet.getString("firstName");
-				lastNameDB = resultSet.getString("lastName");
-				ageDB = resultSet.getInt("age");
-				emailDB = resultSet.getString("userEmail"); 
-				passwordDB = resultSet.getString("password");
+				final String firstName = resultSet.getString("firstName");
+				final String lastName = resultSet.getString("lastName");
+				final int age = resultSet.getInt("age");
+				final String email = resultSet.getString("userEmail"); 
+				final String password = resultSet.getString("password");
 				
-				if(userEmail.equals(emailDB)) {
+				if(userEmailDB.equals("userEmail")) {
 					
 					connection.commit();
 					
 					connection.close();
-					
-					return "SUCCESS"; 
+
 				} 
-			 	  
 			}
-				
+			 	  
 			} catch(SQLException e) {
 				
+			} finally {
+				
+				DBConnection.closeConnections(connection, ps);
 			}
 		
-			DBConnection.closeConnections(connection, statement);
-			DBConnection.closeResultSet(resultSet);	
-			
-			return "Invalid user credentials";
-	}
-
-	@Override
-	public String populateProfilePage(Object object) {
-		// TODO Auto-generated method stub
 		return null;
+
 	}
 
+
 	@Override
-	public String populateProfilePage(String userEmail) {
-		// TODO Auto-generated method stub
+	public List<User> populateProfilePage() throws ClassNotFoundException {
+
 		return null;
 	}
 }

@@ -1,9 +1,11 @@
 package edu.cvtc.web.dao;
 
-public interface PopulateProfileDao {
-	
-	String populateProfilePage(Object object);
+import java.util.List;
 
-	String populateProfilePage(String userEmail);
+import edu.cvtc.web.model.User;
+
+public interface PopulateProfileDao {
+
+	List<User> populateProfilePage() throws ClassNotFoundException;
 
 }
