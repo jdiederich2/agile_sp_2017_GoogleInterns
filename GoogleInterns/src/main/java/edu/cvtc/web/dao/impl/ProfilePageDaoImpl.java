@@ -14,42 +14,46 @@ public class ProfilePageDaoImpl implements PopulateProfileDao {
 	public List<User> populateProfilePage() throws ClassNotFoundException {
 		
 		Connection connection = null;
-		Statement statement = null;
+		PreparedStatement ps = null;
 		ResultSet resultSet = null;
-		
-		String userEmail = LoginBean.setEmail();
-		
-		System.out.println(userEmail);
-		
 		
 		final List<User> loggedInUser = new ArrayList<>();
 		
+		String userEmail = LoginBean.getUserName();
+		
+		System.out.println("Email is: " + userEmail);
+		
+		String query = "SELECT firstName, lastName, age, userEmail, password FROM newUser WHERE userEmail = ?";
+
 		try {
 				
 			connection = DBConnection.createConnection();
 			connection.setAutoCommit(false);
 			
-			statement = connection.createStatement(); 
+			ps = connection.prepareStatement(query); 
+			ps.setQueryTimeout(DBConnection.TIMEOUT);
 			
-			resultSet = statement.executeQuery("SELECT firstName, lastName, age, userEmail, password FROM newUser");  
-		
-			while(resultSet.next()) {  
-				
-				final String firstNameDB = resultSet.getString("firstName");
-				final String lastNameDB = resultSet.getString("lastName");
-				final int ageDB = resultSet.getInt("age");
-				final String userEmailDB = resultSet.getString("userEmail"); 
-				final String passwordDB = resultSet.getString("password");
+			ps.setString(1, userEmail);
+			resultSet = ps.executeQuery();  
 
-				System.out.println(userEmailDB);
+			if(resultSet.next()) {  
 				
-				if(userEmail.equals(userEmailDB)) {
+				final String firstName = resultSet.getString("firstName");
+				final String lastName = resultSet.getString("lastName");
+				final int age = resultSet.getInt("age");
+				userEmail = resultSet.getString("userEmail");
+				final String password = resultSet.getString("password");
+
+				System.out.println("rs" + userEmail);
+				
+				{
 					
-					loggedInUser.add(new User(firstNameDB, lastNameDB, ageDB, userEmailDB, passwordDB));
-					
-					connection.commit();
-					
-					connection.close();
+				loggedInUser.add(new User(firstName, lastName, age, userEmail, password));
+				
+				System.out.println(loggedInUser);
+				connection.commit();
+				
+				connection.close();
 					
 				} 
 			 	  
@@ -59,7 +63,7 @@ public class ProfilePageDaoImpl implements PopulateProfileDao {
 				
 			} finally {
 		
-			DBConnection.closeConnections(connection, statement);
+			DBConnection.closeConnections(connection, ps);
 			DBConnection.closeResultSet(resultSet);
 			
 			}

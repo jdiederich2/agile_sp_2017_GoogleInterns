@@ -99,7 +99,7 @@ public class UserDaoImpl implements UserDao {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 
-		String query = "SELECT * FROM User WHERE userEmail = ?";
+		String query = "SELECT * FROM newUser WHERE userEmail = ?";
 		
 		try {
 			
@@ -115,7 +115,7 @@ public class UserDaoImpl implements UserDao {
 				user.setFirstName(rs.getString("firstName"));
 				user.setLastName(rs.getString("lastName"));
 				user.setAge(rs.getInt("age"));
-				User.setEmail(rs.getString("userEmail"));
+				user.setEmail(rs.getString("userEmail"));
 				user.setPassword(rs.getString("password"));
 			}
 

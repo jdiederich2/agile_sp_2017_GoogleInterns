@@ -63,16 +63,16 @@ public class User implements Serializable {
 		return userEmail;
 	}
 
-	public static String setEmail(String userEmail) {
+	public String setEmail(String userEmail) {
 		return userEmail;
 		
 	}
 	
-	public String getUserEmail(String userEmail) {
+/*	public String getUserEmail(String userEmail) {
 		userEmail = LoginBean.getUserName();
 		
 		return userEmail;
-	}
+	}*/
 	
 	public String getPassword() {
 		return password;

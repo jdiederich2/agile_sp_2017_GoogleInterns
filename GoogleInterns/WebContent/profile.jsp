@@ -18,7 +18,7 @@
 				 	<p>Sorry, user not found.</p>
 			 	</c:when>
 			 	<c:otherwise>
-			 		<c:forEach var="user" items="${loggedInUser}">
+			 		<c:forEach var="loggedInUser" items="${loggedInUser}">
 			 			<div>
 				 			<div>
 				 				<h2>${user.firstName} &nbsp;${user.lastName} </h2> 

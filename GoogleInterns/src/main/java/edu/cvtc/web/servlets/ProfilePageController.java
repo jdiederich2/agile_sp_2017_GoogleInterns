@@ -33,7 +33,7 @@ public class ProfilePageController extends HttpServlet {
 			final List<User> loggedInUser = populateProfileDao.populateProfilePage();
 
 			request.setAttribute("loggedInUser", loggedInUser);
-			
+
 			target = "profile.jsp";
 			
 			System.out.println("PPC");

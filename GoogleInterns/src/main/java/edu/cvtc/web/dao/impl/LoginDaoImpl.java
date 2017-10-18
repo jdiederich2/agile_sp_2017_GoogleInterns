@@ -36,7 +36,9 @@ public class LoginDaoImpl {
 				
 				if(userName.equals(userNameDB) && password.equals(passwordDB)) {
 					
-					User.setEmail(userNameDB);
+					User user = new User();
+					
+					user.setEmail(userNameDB);
 					
 					connection.commit();
 					
