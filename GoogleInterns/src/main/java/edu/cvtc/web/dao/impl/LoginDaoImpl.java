@@ -3,6 +3,7 @@ package edu.cvtc.web.dao.impl;
 import java.sql.*;
 
 import bean.LoginBean;
+import edu.cvtc.web.model.User;
 import edu.cvtc.web.util.DBConnection;
 
 public class LoginDaoImpl {
@@ -34,6 +35,8 @@ public class LoginDaoImpl {
 				passwordDB = resultSet.getString("password");
 				
 				if(userName.equals(userNameDB) && password.equals(passwordDB)) {
+					
+					User.setEmail(userNameDB);
 					
 					connection.commit();
 					

@@ -11,68 +11,61 @@ import edu.cvtc.web.util.DBConnection;
 
 public class ProfilePageDaoImpl implements PopulateProfileDao {
 	
-	private static final String SELECT_USERNAME_FROM_USER = "SELECT (firstName, lastName, age, userEmail, password) FROM newUser WHERE userEmail = (?);";  
-
-	public static List<User> populateProfilePage(String string) throws ClassNotFoundException {
+	public List<User> populateProfilePage() throws ClassNotFoundException {
 		
 		Connection connection = null;
-		PreparedStatement ps = null;
+		Statement statement = null;
 		ResultSet resultSet = null;
 		
-		try {
-			
-			connection = DBConnection.createConnection();
-
-			ps = connection.prepareStatement(SELECT_USERNAME_FROM_USER);
-			
-			ps.setString(1, LoginBean.getUserName());
-			
-			String userEmailDB = LoginBean.getUserName(); 
+		String userEmail = LoginBean.setEmail();
 		
-			
-			final List<User> user = new ArrayList<>();
-
+		System.out.println(userEmail);
+		
+		
+		final List<User> loggedInUser = new ArrayList<>();
+		
+		try {
+				
+			connection = DBConnection.createConnection();
 			connection.setAutoCommit(false);
 			
-			Statement statement = null;
 			statement = connection.createStatement(); 
-			              
 			
-			resultSet = statement.executeQuery(SELECT_USERNAME_FROM_USER);
-			
+			resultSet = statement.executeQuery("SELECT firstName, lastName, age, userEmail, password FROM newUser");  
+		
 			while(resultSet.next()) {  
 				
-				final String firstName = resultSet.getString("firstName");
-				final String lastName = resultSet.getString("lastName");
-				final int age = resultSet.getInt("age");
-				final String email = resultSet.getString("userEmail"); 
-				final String password = resultSet.getString("password");
+				final String firstNameDB = resultSet.getString("firstName");
+				final String lastNameDB = resultSet.getString("lastName");
+				final int ageDB = resultSet.getInt("age");
+				final String userEmailDB = resultSet.getString("userEmail"); 
+				final String passwordDB = resultSet.getString("password");
+
+				System.out.println(userEmailDB);
 				
-				if(userEmailDB.equals("userEmail")) {
+				if(userEmail.equals(userEmailDB)) {
+					
+					loggedInUser.add(new User(firstNameDB, lastNameDB, ageDB, userEmailDB, passwordDB));
 					
 					connection.commit();
 					
 					connection.close();
-
+					
 				} 
-			}
 			 	  
+			} 
+				
 			} catch(SQLException e) {
 				
 			} finally {
-				
-				DBConnection.closeConnections(connection, ps);
+		
+			DBConnection.closeConnections(connection, statement);
+			DBConnection.closeResultSet(resultSet);
+			
 			}
 		
-		return null;
+			return loggedInUser;	
 
-	}
-
-
-	@Override
-	public List<User> populateProfilePage() throws ClassNotFoundException {
-
-		return null;
 	}
 }
-
+	

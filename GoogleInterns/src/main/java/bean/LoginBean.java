@@ -27,8 +27,8 @@ public class LoginBean extends User{
 		return userName;
 	}
 	
-	public String setUserName(String userName) {
-		return LoginBean.userName = userName;
+	public String setUserName(String userEmail) {
+		return LoginBean.userName = userEmail;
 	} 
 	  
 	public String getPassword() {  

@@ -30,14 +30,18 @@ public class ProfilePageController extends HttpServlet {
 			
 			final PopulateProfileDao populateProfileDao = new ProfilePageDaoImpl();
 			
-			final List<User> user = populateProfileDao.populateProfilePage();
+			final List<User> loggedInUser = populateProfileDao.populateProfilePage();
 
-			request.setAttribute("user", user);
+			request.setAttribute("loggedInUser", loggedInUser);
 			
 			target = "profile.jsp";
 			
+			System.out.println("PPC");
+			
 		} catch (ClassNotFoundException e) {
+			
 			e.printStackTrace();
+			request.setAttribute("message", "Unable to person.");
 			target = "error.jsp";
 		}
 	}

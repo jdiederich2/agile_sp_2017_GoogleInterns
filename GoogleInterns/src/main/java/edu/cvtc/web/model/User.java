@@ -18,7 +18,7 @@ public class User implements Serializable {
 	private String firstName;
 	private String lastName;
 	private int age;
-	public String userEmail;
+	public static String userEmail;
 	private String password;
 	
 	public User() {
@@ -59,18 +59,19 @@ public class User implements Serializable {
 		this.age = age;
 	}
 
-	public String getUserEmail() {
+	public static String getUserEmail() {
 		return userEmail;
 	}
 
-	public static void setEmail(String userEmail) {
+	public static String setEmail(String userEmail) {
+		return userEmail;
 		
 	}
 	
-	public String getUserEmail(String userName) {
-		userName = LoginBean.getUserName();
+	public String getUserEmail(String userEmail) {
+		userEmail = LoginBean.getUserName();
 		
-		return userName;
+		return userEmail;
 	}
 	
 	public String getPassword() {

@@ -12,7 +12,7 @@ pageEncoding="ISO-8859-1"%>
 		<div class="container">
 			<nav>
 				<a href="logout.jsp">Logout</a>  
-				<a href="profile.jsp">Profile</a>  
+				<a href="ProfilePage">Profile</a>  
 			</nav>
 			<div>
 				<div> 
