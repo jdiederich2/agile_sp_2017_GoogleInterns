@@ -99,7 +99,7 @@ public class UserDaoImpl implements UserDao {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 
-		String query = "SELECT * FROM User WHERE userEmail = ?";
+		String query = "SELECT * FROM newUser WHERE userEmail = ?";
 		
 		try {
 			

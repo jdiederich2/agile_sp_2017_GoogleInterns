@@ -5,6 +5,8 @@ package edu.cvtc.web.model;
 
 import java.io.Serializable;
 
+import bean.LoginBean;
+
 /**
  * @author Jennifer Diederich
  *
@@ -16,7 +18,7 @@ public class User implements Serializable {
 	private String firstName;
 	private String lastName;
 	private int age;
-	public String userEmail;
+	public static String userEmail;
 	private String password;
 	
 	public User() {
@@ -57,14 +59,21 @@ public class User implements Serializable {
 		this.age = age;
 	}
 
-	public String getUserEmail() {
+	public static String getUserEmail() {
 		return userEmail;
 	}
 
-	public void setEmail(String userEmail) {
-		this.userEmail = userEmail;
+	public String setEmail(String userEmail) {
+		return userEmail;
+		
 	}
-
+	
+/*	public String getUserEmail(String userEmail) {
+		userEmail = LoginBean.getUserName();
+		
+		return userEmail;
+	}*/
+	
 	public String getPassword() {
 		return password;
 	}

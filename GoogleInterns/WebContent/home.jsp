@@ -12,13 +12,13 @@ pageEncoding="ISO-8859-1"%>
 		<div class="container">
 			<nav>
 				<a href="logout.jsp">Logout</a>  
-				<a href="profile.jsp">Profile</a>  
+				<a href="ProfilePage">Profile</a>  
 			</nav>
 			<div>
 				<div> 
 					<h1>The Hitchhicker's Guide to Chippewa Valley</h1>	
 					<br>
-					<!--Welcome <%=request.getAttribute("userName") %>    -->
+
 				</div>
 <%@ include file="includes/navigation.jsp" %>
 				<div class="content">
