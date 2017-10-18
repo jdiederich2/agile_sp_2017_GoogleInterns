@@ -15,7 +15,7 @@
 			
 <%@ include file="includes/navigation.jsp" %>
 			<div class="content">
-				<p> Search for a ride and passangers by Starting or Ending City.</p>
+				<p> Search for a ride and passengers by Starting or Ending City.</p>
 				
 				<form action="Search">
 					<label for="startingCity"><strong>Search by Starting City:</strong></label>
